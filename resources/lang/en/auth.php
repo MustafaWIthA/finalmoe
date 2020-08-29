@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
+    'failed' => 'Xogtaa Galisay kuma jirto Gudaha galaka aan hayno.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
 ];

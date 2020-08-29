@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//Auth::logout();
+
 
 Auth::routes();
+Route::resource('projects', 'ProjectController')->middleware('auth');  //->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->name('home');
