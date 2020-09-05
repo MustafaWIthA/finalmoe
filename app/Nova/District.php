@@ -46,8 +46,8 @@ class District extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('name'),
-            BelongsTo::make('Region')
-
+            BelongsTo::make('Region'),
+            
 
         ];
     }

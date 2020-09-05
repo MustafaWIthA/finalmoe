@@ -33,7 +33,8 @@
             <div class="min-h-screen flex-none pt-header min-h-screen w-sidebar bg-grad-sidebar px-6">
                 <a href="{{ \Laravel\Nova\Nova::path() }}">
                     <div class="absolute pin-t pin-l pin-r bg-logo flex items-center w-sidebar h-header px-6 text-white">
-                       @include('nova::partials.logo')
+                       {{-- @include('nova::partials.logo') --}}
+                       <h4>Education Projects</h4>
                     </div>
                 </a>
 
@@ -61,7 +62,6 @@
                 <div data-testid="content" class="px-view py-view mx-auto">
                     @yield('content')
 
-                    @include('nova::partials.footer')
                 </div>
             </div>
         </div>

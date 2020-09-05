@@ -63,10 +63,12 @@ class Project extends Resource
                     'Complete' => 'Complete',
                 ])->hideFromIndex(),
             TextArea::make('description'),
-            DateTime::make('start-date'),
-            DateTime::make('end-date'),
+            DateTime::make('start_date'),
+            DateTime::make('end_date'),
 
            // BelongsToMany::make('Regions'),
+           BelongsToMany::make('Agencies'),
+           BelongsToMany::make('Regions'),
 
 
 

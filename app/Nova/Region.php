@@ -51,7 +51,7 @@ class Region extends Resource
 
             //relation
             HasMany::make('Districts'),
-          //  BelongsToMany::make('Projects')
+           BelongsToMany::make('Projects')
 
 
 

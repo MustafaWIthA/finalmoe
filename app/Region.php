@@ -17,6 +17,6 @@ class Region extends Model
 
     public function Projects()
     {
-        return $this->belongsTo(Project::class);
+        return $this->belongsToMany(Project::class);
     }
 }
