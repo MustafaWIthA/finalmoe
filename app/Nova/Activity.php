@@ -3,36 +3,29 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\TextArea;
-
 use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\Status;
+use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\HasMany;
-//use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\Status;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
-//use Laravel\Nova\Http\Requests\NovaRequest;
-use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
-
-
-class Project extends Resource
+class Activity extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Project::class;
+    public static $model = \App\Activity::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -40,7 +33,7 @@ class Project extends Resource
      * @var array
      */
     public static $search = [
-        'name',
+        'id',
     ];
 
     /**
@@ -53,8 +46,8 @@ class Project extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('title'),
-            Text::make('type'),
+            Text::make('Activity Discription', 'Name'),
+            Number::make('Budget','amount'),
             Status::make('Status ', 'status')
                 ->loadingWhen(['Active', 'Active'])
                 ->failedWhen(['Suspended'])
@@ -65,18 +58,9 @@ class Project extends Resource
                     'Pipeline' => 'Pipeline',
                     'Complete' => 'Complete',
                 ])->hideFromIndex(),
-            TextArea::make('description'),
+            Text::make('user_id'),
             DateTime::make('start_date'),
             DateTime::make('end_date'),
-
-           
-           BelongsToMany::make('Agencies'),
-           BelongsToMany::make('Regions'),
-           HasMany::make('Activities'),
-           HasMany::make('Documents'),
-
-
-
         ];
     }
 
@@ -121,8 +105,6 @@ class Project extends Resource
      */
     public function actions(Request $request)
     {
-        return [
-            new DownloadExcel,
-        ];
+        return [];
     }
 }

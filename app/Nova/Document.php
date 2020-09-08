@@ -3,19 +3,19 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Department extends Resource
+class Document extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Department::class;
+    public static $model = \App\Document::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -44,6 +44,9 @@ class Department extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('name'),
+            Text::make('size'),
+            Text::make('type'),
+            BelongsTo::make('Project'),
 
         ];
     }

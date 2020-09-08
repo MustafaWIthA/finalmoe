@@ -6,7 +6,8 @@
   </div>
   
   <input class="block w-full h-full pl-8 pr-3 py-2 p-3 rounded-md text-gray-900 
-  placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 sm:text-sm"  type="text" wire:model="search" >
+  placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 sm:text-sm"  
+  type="text" wire:model.live="search" >
 
 </div><br>
 <div class="flex flex-col">

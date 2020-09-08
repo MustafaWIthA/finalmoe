@@ -13,7 +13,15 @@ class Project extends Model
 
     public function Districts()
     {
-        return $this->hasMany(District::class);
+        return $this->belongsToMany(District::class);
+    }
+    public function Documents()
+    {
+        return $this->hasMany(Document::class);
+    }
+    public function Activities()
+    {
+        return $this->hasMany(Activity::class);
     }
     public function Agencies()
     {

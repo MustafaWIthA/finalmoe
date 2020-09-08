@@ -16,7 +16,8 @@
         "laravel/nova": "*",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
-        "livewire/livewire": "^1.3"
+        "livewire/livewire": "^1.3",
+        "maatwebsite/laravel-nova-excel": "^1.2"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

@@ -18,10 +18,10 @@ class CreateAgencyProjectTable extends Migration
             $table->integer('agency_id')->unsigned();
             $table->integer('project_id')->unsigned();
             $table->timestamps();
-            $table->foreign('agency_id')->references('id')->on('agencies')
-                  ->onDelete('cascade');
-            $table->foreign('project_id')->references('id')->on('project')
-                  ->onDelete('cascade');
+            // $table->foreign('agency_id')->references('id')->on('agencies')
+            //       ->onDelete('cascade');
+            // $table->foreign('project_id')->references('id')->on('project')
+            //       ->onDelete('cascade');
         });
     }
 
