@@ -31,7 +31,11 @@ class Project extends Model
     {
         return $this->belongsToMany(Region::class);
     }
-
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+        
+    }
 
   
     public function scopeSearch($query, $val)

@@ -17,12 +17,12 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('type');
+            $table->double('budget');
             $table->string('status_id');
             $table->string('user_id');
-            $table->string('amount');
             $table->string('description');
-            $table->date('start-date');
-            $table->date('end-date');
+            $table->date('start_date');
+            $table->date('end_date');
             
             $table->timestamps();
         });

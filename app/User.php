@@ -19,6 +19,11 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+
+    public function Projects()
+    {
+        return $this->hasMany(Project::class);
+    }
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -35,5 +40,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'birthdate' => 'datetime',
+
     ];
 }

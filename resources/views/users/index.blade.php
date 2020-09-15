@@ -1,9 +1,7 @@
 @extends('layouts.app')
 @section('maintitle')
-    Project Details
+    Users Data
 @endsection
 @section('content')
-halow
-
-{{$project->title}}
+@livewire('users')
 @endsection

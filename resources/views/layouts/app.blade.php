@@ -11,11 +11,11 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://kit.fontawesome.com/107c56b88c.js" crossorigin="anonymous"></script>
 
   <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script> 
-    <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+    <script src="https://www.chartjs.org/samples/latest/utils.js"></script> --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -69,7 +69,7 @@
               </div>
               <div class="mt-5 flex-1 h-0 overflow-y-auto">
                 <nav class="px-2 space-y-1">
-                <a href="/home" class="group flex items-center px-2 py-2 text-base leading-6 font-medium rounded-md text-white bg-indigo-900 focus:outline-none focus:bg-indigo-700 transition ease-in-out duration-150">
+                <a href="/" class="group flex items-center px-2 py-2 text-base leading-6 font-medium rounded-md text-white bg-indigo-900 focus:outline-none focus:bg-indigo-700 transition ease-in-out duration-150">
                     <svg class="mr-4 h-6 w-6 text-indigo-400 group-hover:text-indigo-300 group-focus:text-indigo-300 transition ease-in-out duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                     </svg>
@@ -80,7 +80,7 @@
                     <svg class="mr-4 h-6 w-6 text-indigo-400 group-hover:text-indigo-300 group-focus:text-indigo-300 transition ease-in-out duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
-                    Team
+                    Users
                   </a>
       
                 <a href="{{route('projects.index')}}" class="group 
@@ -128,14 +128,14 @@
             <!-- Sidebar component, swap this element with another sidebar if you like -->
             <div class="flex flex-col flex-grow bg-indigo-800 pt-5 pb-4 overflow-y-auto">
               <div class="flex items-center flex-shrink-0 px-4">
-                <a href="/home" >                
+                <a href="/" >                
                   <img class="h-8 w-auto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Puntland_State_of_Somalia_Coat_of_Arms.png/640px-Puntland_State_of_Somalia_Coat_of_Arms.png?download" alt="Workflow">
                 </a>                  <span class="text-white font-extrabold">Puntalnd ESPS</span>
 
             </div>
               <div class="mt-5 flex-1 flex flex-col">
                 <nav class="flex-1 px-2 bg-indigo-800 space-y-1">
-                  <a href="/home" class="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-white rounded-md bg-indigo-900 focus:outline-none focus:bg-indigo-700 transition ease-in-out duration-150">
+                  <a href="/" class="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-white rounded-md bg-indigo-900 focus:outline-none focus:bg-indigo-700 transition ease-in-out duration-150">
                     <svg class="mr-3 h-6 w-6 text-indigo-400 group-focus:text-indigo-300 transition ease-in-out duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                     </svg>
@@ -164,11 +164,11 @@
                     Map
                   </a>
 
-                  <a href="#" class="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-indigo-300 rounded-md hover:text-white hover:bg-indigo-700 focus:outline-none focus:text-white focus:bg-indigo-700 transition ease-in-out duration-150">
+                  <a href="{{route('users.index')}}" class="group flex items-center px-2 py-2 text-sm leading-5 font-medium text-indigo-300 rounded-md hover:text-white hover:bg-indigo-700 focus:outline-none focus:text-white focus:bg-indigo-700 transition ease-in-out duration-150">
                     <svg class="mr-3 h-6 w-6 text-indigo-400 group-hover:text-indigo-300 group-focus:text-indigo-300 transition ease-in-out duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
-                    Team
+                    Users
                   </a>
 
                 
@@ -243,8 +243,11 @@
       
           <main class="flex-1 relative overflow-y-auto focus:outline-none" tabindex="0">
             <div class="pt-2 pb-6 md:py-6">
+              {{-- Dashboard --}}
               <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-                <h1 class="text-2xl font-semibold text-gray-900">Dashboard</h1>
+                <h1 class="text-2xl font-semibold text-gray-900"> 
+                @yield('maintitle')  
+                </h1>
                 
               </div>
               <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">

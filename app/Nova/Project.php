@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\TextArea;
@@ -11,6 +12,7 @@ use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Status;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\HasMany;
 //use Laravel\Nova\Fields\HasMany;
 
@@ -32,7 +34,7 @@ class Project extends Resource
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'title';
 
     /**
      * The columns that should be searched.
@@ -40,7 +42,7 @@ class Project extends Resource
      * @var array
      */
     public static $search = [
-        'name',
+        'id','title',
     ];
 
     /**
@@ -65,6 +67,7 @@ class Project extends Resource
                     'Pipeline' => 'Pipeline',
                     'Complete' => 'Complete',
                 ])->hideFromIndex(),
+            Currency::make('budget'),
             TextArea::make('description'),
             DateTime::make('start_date'),
             DateTime::make('end_date'),
@@ -74,6 +77,8 @@ class Project extends Resource
            BelongsToMany::make('Regions'),
            HasMany::make('Activities'),
            HasMany::make('Documents'),
+           BelongsTo::make('User'),
+
 
 
 

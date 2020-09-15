@@ -23,3 +23,4 @@ Route::get('/', 'HomeController@index')->name('home');
 Auth::routes();
 Route::resource('projects', 'ProjectController')->middleware('auth');  //->middleware('auth');
 
+Route::resource('users', 'UserController')->middleware('auth');  //->middleware('auth');

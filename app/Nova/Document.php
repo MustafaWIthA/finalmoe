@@ -4,12 +4,19 @@ namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Document extends Resource
 {
+
+
+
+    public static $displayInNavigation = false;
+
+
     /**
      * The model the resource corresponds to.
      *
@@ -43,7 +50,7 @@ class Document extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('name'),
+            File::make('name'),
             Text::make('size'),
             Text::make('type'),
             BelongsTo::make('Project'),

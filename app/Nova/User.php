@@ -3,7 +3,11 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Avatar;
+use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\Gravatar;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
@@ -22,7 +26,7 @@ class User extends Resource
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'first_name';
 
     /**
      * The columns that should be searched.
@@ -30,7 +34,7 @@ class User extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email',
+        'id', 'first_name', 'email',
     ];
 
     /**
@@ -44,15 +48,16 @@ class User extends Resource
         return [
             ID::make()->sortable(),
 
-            Gravatar::make()->maxWidth(50),
+           // Gravatar::make('profile')->maxWidth(50),
 
-            Text::make('Fisrt Name','first-name')
+            Text::make('Fisrt Name','first_name')
                 ->sortable()
                 ->rules('required', 'max:255'),
-            Text::make('second Name','second-name'),
-            Text::make('last Name','last-name'),
+            Text::make('second Name','second_name'),
+            Text::make('last Name','last_name')->onlyOnForms(),
             Text::make('Username')
                 ->sortable()
+                ->onlyOnForms()
                 ->rules('required', 'max:254')
                 ->creationRules('unique:users,email')
                 ->updateRules('unique:users,email,{{resourceId}}'),
@@ -61,11 +66,15 @@ class User extends Resource
                 ->rules('required', 'email', 'max:254')
                 ->creationRules('unique:users,email')
                 ->updateRules('unique:users,email,{{resourceId}}'),
-
+            Avatar::make('profile')->onlyOnForms(),
+            DateTime::make('birthdate')->onlyOnForms(),
+            Date::make('created_at'),
             Password::make('Password')
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
+                HasMany::make('Projects'),
+
         ];
     }
 
