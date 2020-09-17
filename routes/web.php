@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('home');
 // });
-Auth::routes(['register' => false]);
 
 // Route::get('/', );
 Route::get('/', 'HomeController@index')->name('home');
