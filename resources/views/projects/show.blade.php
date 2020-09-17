@@ -5,7 +5,9 @@
 @section('content')
 halow
 
-
+{{$project->title}}
+{{$project->start_date}}
+{{$project->end_date}}
 {{-- <div class="shadow w-full bg-grey-light mt-2">
     <div class="bg-orange-300 text-xs leading-none py-1 text-center text-blue-400" 
     
@@ -13,9 +15,7 @@ halow
         {{100*$project->end_date->diffInDays(now()) / $project->end_date->diffInDays($project->start_date)}}
         %</div>
   </div> --}}
-{{$project->title}}
-{{$project->start_date}}
-{{$project->end_date}}
+
 
 
 
