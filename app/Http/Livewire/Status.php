@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Project;
+use App\Sector;
 use DB;
 
 class Status extends Component
@@ -11,7 +12,11 @@ class Status extends Component
     public function render()
     {
 
-        $allprojects = DB::table('projects')->count();
+
+
+        $SectorProjects = Sector::withCount('Projects')->get();
+        $SectorProjects = Sector::withCount('Projects')->get();
+        $allprojects = Project::count();
         
         $running = DB::table('projects')
                 ->where('status', 'Running')->exists();
@@ -20,7 +25,9 @@ class Status extends Component
         return view('livewire.status', [
                     'allprojects'=>$allprojects,
                     'running'=>$running,
-                    'Suspended'=>$Suspended]
+                    'Suspended'=>$Suspended,
+                    'SectorProjects'=>$SectorProjects
+                    ]
                 );
     }
 }

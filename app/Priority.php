@@ -4,10 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sector extends Model
+class Priority extends Model
 {
     //
-
 
     public function Projects()
     {

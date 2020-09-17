@@ -14,14 +14,16 @@ class ProjectRegion extends Migration
     public function up()
     {
         Schema::create('project_region', function (Blueprint $table) {
-            //$table->id();
-            $table->integer('region_id')->unsigned();
-            $table->integer('project_id')->unsigned();
+            $table->id();
+            $table->unsignedBigInteger('region_id');
+            $table->unsignedBigInteger('project_id');
             $table->timestamps();
-            // $table->foreign('region_id')->references('id')->on('region')
-            //       ->onDelete('cascade');
-            // $table->foreign('project_id')->references('id')->on('project')
-            //       ->onDelete('cascade');
+            $table->unique(['project_id','region_id']);
+
+            $table->foreign('region_id')->references('id')->on('regions')
+                  ->onDelete('cascade');
+            $table->foreign('project_id')->references('id')->on('projects')
+                  ->onDelete('cascade');
         });
     }
 

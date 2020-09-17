@@ -14,7 +14,7 @@ class Projects extends Component
 
     public $perPage = 10;
     public $sortField='title';
-    public $sortAsc = true;
+    public $sortAsc = false;
     public $search = '';
 
     public function sortBy($field)

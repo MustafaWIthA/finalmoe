@@ -1,16 +1,20 @@
 <div>
-    <div class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-1 lg:grid-cols-2">
         <div class="bg-white overflow-hidden shadow rounded-lg">
+          <h3 class="text-xl p-3 text-center leading-10 font-bold text-white bg-blue-500">
+            Projects Per Sector
+          </h3>
           <div class="px-4 py-5 sm:p-6">
             <div class="flex items-center">
-              
-                    <canvas id="myChart"></canvas>
-                
+                <canvas id="sectorprojectcount" ></canvas>       
               </div>
           </div>
          
         </div>
         <div class="bg-white overflow-hidden shadow rounded-lg">
+          <h3 class="text-xl p-3 text-center leading-10 font-bold text-white bg-blue-500">
+            Total Projects
+          </h3>
           <div class="px-4 py-5 sm:p-6">
             <div class="flex items-center">
               
@@ -20,6 +24,9 @@
          
         </div>
         <div class="bg-white overflow-hidden shadow rounded-lg">
+          <h3 class="text-xl p-3 text-center leading-10 font-bold text-white bg-blue-500">
+            Projects by Region 
+          </h3>
           <div class="px-4 py-5 sm:p-6">
             <div class="flex items-center">
              
@@ -27,10 +34,65 @@
 
             </div>
           </div>
-         
+        </div>
+        <div class="bg-white overflow-hidden shadow rounded-lg">
+          <h3 class="text-xl p-3 text-center leading-10 font-bold text-white bg-blue-500">
+            Projects by Region 
+          </h3>
+          <div class="px-4 py-5 sm:p-6">
+            <div class="flex items-center">
+             
+              <canvas id="chart-area"></canvas>
+
+            </div>
+          </div>
         </div>
       </div>
 </div>
+
+
+{{--  --}}
+<script>
+    new Chart(document.getElementById("sectorprojectcount"), {
+    type: 'horizontalBar',
+    
+    data: {
+      labels: [
+        @foreach ($SectorProjects as $SectorProject)
+          '{{$SectorProject->name}}',
+        @endforeach
+      ],
+      datasets: [
+        {
+         
+        maxBarThickness: 3,
+        minBarLength: 3,
+          label: "Projects (Sector)",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45870","#c45450","#c80850","#c32850"],
+          data: [
+            @foreach ($SectorProjects as $SectorProject)
+                  {{$SectorProject->projects_count}},
+           @endforeach
+          ]
+        }
+      ]
+    },
+    options: {
+      scales: {
+            xAxes: [{
+                stacked: true
+            }],
+            
+        },
+      legend: { display: false },
+      title: {
+        display: false,
+        text: 'Projects per Sector'
+      }
+    }
+});
+</script>
+
 <script>
   var ctx = document.getElementById('myChart').getContext('2d');
   var myChart = new Chart(ctx, {

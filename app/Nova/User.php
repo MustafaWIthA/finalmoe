@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\MorphToMany;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\Date;
@@ -73,10 +74,15 @@ class User extends Resource
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:8')
                 ->updateRules('nullable', 'string', 'min:8'),
-                HasMany::make('Projects'),
+            HasMany::make('Projects'),
+            MorphToMany::make('Roles', 'roles', \Vyuldashev\NovaPermission\Role::class),
+            MorphToMany::make('Permissions', 'permissions', \Vyuldashev\NovaPermission\Permission::class),
+    
 
         ];
     }
+
+
 
     /**
      * Get the cards available for the request.
@@ -122,3 +128,5 @@ class User extends Resource
         return [];
     }
 }
+
+

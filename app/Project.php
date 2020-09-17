@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     //
+    protected $guarded = [];
 
 
 
 
     public function Districts()
     {
-        return $this->belongsToMany(District::class);
+        return $this->belongsToMany(District::class)->withTimestamps();;
     }
     public function Documents()
     {
@@ -25,16 +26,24 @@ class Project extends Model
     }
     public function Agencies()
     {
-        return $this->belongsToMany(Agency::class);
+        return $this->belongsToMany(Agency::class)->withTimestamps();;
     }
     public function Regions()
     {
-        return $this->belongsToMany(Region::class);
+        return $this->belongsToMany(Region::class)->withTimestamps();;
     }
     public function User()
     {
         return $this->belongsTo(User::class);
         
+    }
+    public function Priorities()
+    {
+        return $this->belongsToMany(Priority::class)->withTimestamps();;
+    }
+    public function Sectors()
+    {
+        return $this->belongsToMany(Sector::class)->withTimestamps();;
     }
 
   
@@ -46,6 +55,8 @@ class Project extends Model
         ;
 
     }
+
+
 
 
     protected $dates = [

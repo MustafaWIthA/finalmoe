@@ -17,7 +17,9 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "livewire/livewire": "^1.3",
-        "maatwebsite/laravel-nova-excel": "^1.2"
+        "maatwebsite/laravel-nova-excel": "^1.2",
+        "spatie/laravel-permission": "^3.16",
+        "vyuldashev/nova-permission": "^2.9"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

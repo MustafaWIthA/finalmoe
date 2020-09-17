@@ -11,11 +11,11 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://kit.fontawesome.com/107c56b88c.js" crossorigin="anonymous"></script>
 
-  <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script> 
-    <script src="https://www.chartjs.org/samples/latest/utils.js"></script> --}}
+    <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script> 
+    <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -264,5 +264,5 @@
       @livewireScripts
       
 </body>
-
+@include('partials.sectors')
 </html>
