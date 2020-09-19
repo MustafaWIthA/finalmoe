@@ -57,6 +57,7 @@ class ProjectController extends Controller
 
         $attributes = request()->validate([
             'title' => 'required|max:255',
+            'target' => 'required|max:255',
             'description' => 'required',
             'state_id' => 'required|max:25',
             'type_id' => 'required|max:25',
@@ -74,6 +75,7 @@ class ProjectController extends Controller
             'user_id' => auth()->id(),
             'title' => $attributes['title'],
             'description' => $attributes['description'],
+            'target' => $attributes['target'],
             'type_id' => $attributes['type_id'],
             'state_id' => $attributes['state_id'],
             'budget' => $attributes['budget'],
