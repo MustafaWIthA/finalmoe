@@ -5,7 +5,8 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Project;
 use App\Sector;
-use DB;
+use App\State;
+use App\Type;
 
 class Status extends Component
 {
@@ -13,20 +14,17 @@ class Status extends Component
     {
 
 
+        // $allprojects = 
+        // $SectorProjects =  
+        // $StateProjects = 
+        // $TypeProjects = ;
 
-        $SectorProjects = Sector::withCount('Projects')->get();
-        $SectorProjects = Sector::withCount('Projects')->get();
-        $allprojects = Project::count();
-        
-        $running = DB::table('projects')
-                ->where('status', 'Running')->exists();
-        $Suspended = DB::table('projects')
-                ->where('status', 'Suspended')->exists();
+  
         return view('livewire.status', [
-                    'allprojects'=>$allprojects,
-                    'running'=>$running,
-                    'Suspended'=>$Suspended,
-                    'SectorProjects'=>$SectorProjects
+                    'allprojects'=>Project::count(),
+                    'StateProjects'=>State::withCount('Projects')->get(),
+                    'TypeProjects'=>Type::withCount('Projects')->get(),
+                    'SectorProjects'=>Sector::withCount('Projects')->get(),
                     ]
                 );
     }

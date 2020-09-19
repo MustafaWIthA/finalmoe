@@ -14,6 +14,7 @@ use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Currency;
 use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\Number;
 //use Laravel\Nova\Fields\HasMany;
 
 //use Laravel\Nova\Http\Requests\NovaRequest;
@@ -56,30 +57,23 @@ class Project extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             Text::make('title'),
-            Text::make('type'),
-            Status::make('Status ', 'status')
-                ->loadingWhen(['Active', 'Active'])
-                ->failedWhen(['Suspended'])
-                ->onlyOnIndex(),
-            Select::make('Status')->options([
-                    'Active' => 'Active',
-                    'Suspended' => 'Suspended',
-                    'Pipeline' => 'Pipeline',
-                    'Complete' => 'Complete',
-                ])->hideFromIndex(),
             Currency::make('budget'),
             TextArea::make('description'),
+            Number::make('target'),
             DateTime::make('start_date'),
             DateTime::make('end_date'),
 
            
            BelongsToMany::make('Agencies'),
+           BelongsToMany::make('Donors'),
            BelongsToMany::make('Sectors'),
            BelongsToMany::make('Priorities'),
            BelongsToMany::make('Regions'),
            HasMany::make('Activities'),
            HasMany::make('Documents'),
            BelongsTo::make('User'),
+           BelongsTo::make('Type'),
+           BelongsTo::make('State'),
 
 
 

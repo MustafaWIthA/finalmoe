@@ -50,8 +50,9 @@ class Activity extends Resource
     {
         return [
             ID::make(__('ID'), 'id')->sortable(),
-            Text::make('Activity Discription', 'Name'),
+            Text::make('Activity Discription', 'name'),
             Number::make('Budget','amount'),
+            Number::make('target'),
             Status::make('Status ', 'status')
                 ->loadingWhen(['Active', 'Active'])
                 ->failedWhen(['Suspended'])

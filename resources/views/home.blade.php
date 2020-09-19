@@ -6,7 +6,7 @@
   </div>
   <div class="mt-4">
     @hasrole('SuperAdmin')
-    @livewire('projects')
+    {{-- @livewire('projects') --}}
     @else
         you are not an admin
     @endhasrole

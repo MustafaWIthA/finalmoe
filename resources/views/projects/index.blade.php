@@ -6,7 +6,7 @@ Projects Data
 
 <div class="pb-5 border-b border-gray-200 space-y-3 sm:flex sm:items-center sm:justify-between sm:space-x-4 sm:space-y-0">
     <h3 class="text-lg leading-6 font-medium text-gray-900">
-      //partials
+      {{-- //partials --}}
       @include('partials.error')
     </h3>
     <div>

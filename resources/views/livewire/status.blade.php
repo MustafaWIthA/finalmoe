@@ -11,9 +11,9 @@
           </div>
          
         </div>
-        <div class="bg-white overflow-hidden shadow rounded-lg">
+        <div class="bg-red-100 overflow-hidden shadow rounded-lg">
           <h3 class="text-xl p-3 text-center leading-10 font-bold text-white bg-blue-500">
-            Total Projects
+             Project Type
           </h3>
           <div class="px-4 py-5 sm:p-6">
             <div class="flex items-center">
@@ -30,7 +30,7 @@
           <div class="px-4 py-5 sm:p-6">
             <div class="flex items-center">
              
-              <canvas id="chart-area"></canvas>
+              <canvas id="myChart"></canvas>
 
             </div>
           </div>
@@ -42,7 +42,7 @@
           <div class="px-4 py-5 sm:p-6">
             <div class="flex items-center">
              
-              <canvas id="chart-area"></canvas>
+              <canvas id="barchartRegions" ></canvas>
 
             </div>
           </div>
@@ -55,7 +55,6 @@
 <script>
     new Chart(document.getElementById("sectorprojectcount"), {
     type: 'horizontalBar',
-    
     data: {
       labels: [
         @foreach ($SectorProjects as $SectorProject)
@@ -90,7 +89,9 @@
         text: 'Projects per Sector'
       }
     }
+    
 });
+
 </script>
 
 <script>
@@ -98,11 +99,19 @@
   var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
-          labels: ['Running', 'Complete', 'all'],
+          labels: [
+            @foreach ($StateProjects as $StateProject)
+                '{{$StateProject->name}}',
+            @endforeach
+            ],
           datasets: [{
               label: '# of Projects',
               
-              data: [ {{$running}}, {{$Suspended}},{{$allprojects}}],
+              data: [ 
+                @foreach ($StateProjects as $StateProject)
+                  {{$StateProject->projects_count}},
+                @endforeach
+              ],
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
@@ -123,7 +132,10 @@
               yAxes: [{
                   ticks: {
                       beginAtZero: true
-                  }
+                  },
+                  // gridLines: {
+                  //     display:false
+                  // } 
               }]
           }
       }
@@ -133,19 +145,22 @@
   <script >
      var ctx = document.getElementById('myChart2').getContext('2d');
   var myChart = new Chart(ctx, {
-      type: 'line',
+      type: 'doughnut',
       data: {
-          labels: ['Running', 'Complete', 'all'],
+          labels: [
+            @foreach ($TypeProjects as $TypeProject)
+                '{{$TypeProject->name}}',
+            @endforeach
+          ],
           datasets: [{
               label: '# of Projects',
               
-              data: [ {{$running}}, {{$Suspended}},{{$allprojects}}],
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                 
+              data: [ 
+                @foreach ($TypeProjects as $TypeProject)
+                {{$TypeProject->projects_count}},
+               @endforeach
               ],
+              backgroundColor: ["Red", "Blue","Green"],
               borderColor: [
                   'rgba(255, 99, 132, 1)',
                   'rgba(54, 162, 235, 1)',
@@ -159,80 +174,103 @@
           scales: {
               yAxes: [{
                   ticks: {
-                      beginAtZero: true
-                  }
+                      beginAtZero: false
+                  },
+                  gridLines: {
+                      display:false
+                  } 
+                  
               }]
           }
       }
   });
   </script>
 
-  <script>
-    var randomScalingFactor = function() {
-			return Math.round(Math.random() * 100);
-		};
+<script>
+new Chart(document.getElementById("bar-chart-grouped"), {
+    type: 'bar',
+    data: {
+      labels: ["1900", "1950", "1999", "2050"],
+      datasets: [
+        {
+          label: "Sector",
+          backgroundColor: "#3e95cd",
+          data: [
+            @foreach ($SectorProjects as $SectorProject)
+                  {{$SectorProject->projects_count}},
+           @endforeach
+          ]
+        }, {
+          label: "Satatus",
+          backgroundColor: "#8e5ea2",
+          data: [
+            @foreach ($StateProjects as $StateProject)
+                  {{$StateProject->projects_count}},
+                @endforeach
+          ]
+        },
+        {
+          label:"Type",
+          backgroundColor:"#445566",
+          data:[
+            @foreach ($TypeProjects as $TypeProject)
+                '{{$TypeProject->projects_count}}',
+            @endforeach
+          ]
+          
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Population growth (millions)'
+      }
+    }
+});
+</script>
 
-		var config = {
-			type: 'pie',
-			data: {
-				datasets: [{
-          label: '# of Projects',
 
-					data: [
-            {{$running}}, {{$Suspended}},{{$allprojects}}
-					],
-					backgroundColor: [
-						window.chartColors.red,
-						window.chartColors.orange,
-						window.chartColors.yellow,
-					],
-					label: 'Dataset 1'
-				}],
-				labels: [
-					'UNICEF',
-					'CARE',
-					'SAVE',
-				]
-			},
-			options: {
-				responsive: true
-			}
-		};
-
-		window.onload = function() {
-			var ctx = document.getElementById('chart-area').getContext('2d');
-			window.myPie = new Chart(ctx, config);
-		};
-
-		document.getElementById('randomizeData').addEventListener('click', function() {
-			config.data.datasets.forEach(function(dataset) {
-				dataset.data = dataset.data.map(function() {
-					return randomScalingFactor();
-				});
-			});
-
-			window.myPie.update();
-		});
-
-		var colorNames = Object.keys(window.chartColors);
-		document.getElementById('addDataset').addEventListener('click', function() {
-			var newDataset = {
-				backgroundColor: [],
-				data: [],
-				label: 'New dataset ' + config.data.datasets.length,
-			};
-
-			for (var index = 0; index < config.data.labels.length; ++index) {
-				newDataset.data.push(randomScalingFactor());
-
-				var colorName = colorNames[index % colorNames.length];
-				var newColor = window.chartColors[colorName];
-				newDataset.backgroundColor.push(newColor);
-			}
-
-			config.data.datasets.push(newDataset);
-			window.myPie.update();
-		});
-
-	
+<script>
+  new Chart(document.getElementById("barchartRegions"), {
+      type: 'bar',
+      data: {
+        labels: ["1900", "1950", "1999", "2050"],
+        datasets: [
+          {
+            label: "Sector",
+            backgroundColor: "#3e95cd",
+            data: [
+              @foreach ($SectorProjects as $SectorProject)
+                    {{$SectorProject->projects_count}},
+             @endforeach
+            ]
+          }, {
+            label: "Satatus",
+            backgroundColor: "#8e5ea2",
+            data: [
+              @foreach ($StateProjects as $StateProject)
+                    {{$StateProject->projects_count}},
+                  @endforeach
+            ]
+          },
+          {
+            label:"Type",
+            backgroundColor:"#445566",
+            data:[
+              @foreach ($TypeProjects as $TypeProject)
+                  '{{$TypeProject->projects_count}}',
+              @endforeach
+            ]
+            
+          }
+        ]
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Population growth (millions)'
+        }
+      }
+  });
   </script>

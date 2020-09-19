@@ -28,6 +28,10 @@ class Project extends Model
     {
         return $this->belongsToMany(Agency::class)->withTimestamps();;
     }
+    public function Donors()
+    {
+        return $this->belongsToMany(Donor::class)->withTimestamps();;
+    }
     public function Regions()
     {
         return $this->belongsToMany(Region::class)->withTimestamps();;
@@ -45,13 +49,22 @@ class Project extends Model
     {
         return $this->belongsToMany(Sector::class)->withTimestamps();;
     }
+    public function Type()
+    {
+        return $this->belongsTo(Type::class);
+    }
+    public function State()
+    {
+        return $this->belongsTo(State::class);
+    }
+
+
 
   
     public function scopeSearch($query, $val)
     {
         return $query
         ->where('title','like','%'.$val.'%')
-        ->Orwhere('type','like','%'.$val.'%')
         ;
 
     }

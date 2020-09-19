@@ -51,7 +51,7 @@ class Document extends Resource
         return [
             ID::make(__('ID'), 'id')->sortable(),
             File::make('name'),
-            Text::make('size'),
+            Text::make('title', 'size'),
             Text::make('type'),
             BelongsTo::make('Project'),
 

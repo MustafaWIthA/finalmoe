@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+use App\State;
+use App\Type;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -36,7 +38,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        return view('projects.create',[
+            'Types'=>Type::all(),
+            'Status'=>State::all()
+        ]);
     }
 
     /**
@@ -53,8 +58,8 @@ class ProjectController extends Controller
         $attributes = request()->validate([
             'title' => 'required|max:255',
             'description' => 'required',
-            'status' => 'required|max:25',
-            'type' => 'required|max:25',
+            'state_id' => 'required|max:25',
+            'type_id' => 'required|max:25',
             'budget' => 'required',
             'start_date' => 'required|max:255',
             'end_date' => 'required|max:255',
@@ -62,13 +67,15 @@ class ProjectController extends Controller
             'priorities' => 'required',
         ]);
 
+       
+
 
         $project = new Project([
             'user_id' => auth()->id(),
             'title' => $attributes['title'],
             'description' => $attributes['description'],
-            'type' => $attributes['type'],
-            'status' => $attributes['status'],
+            'type_id' => $attributes['type_id'],
+            'state_id' => $attributes['state_id'],
             'budget' => $attributes['budget'],
             'start_date' => $attributes['start_date'],
             'end_date' => $attributes['end_date'],

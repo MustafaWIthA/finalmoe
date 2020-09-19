@@ -13,6 +13,12 @@
       </a> 
     </th>
     <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+        <a wire:click.prevent="sortBy('state')" role="button" href="#">
+          State
+        @include('includes.sorticon', ['field' => 'name'])
+      </a> 
+    </th>
+    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
         Start Date
     </th>
     <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
@@ -28,7 +34,11 @@
                 <a href="{{route('projects.show', $project->id)}}">{{$project->title}} </a>
                 </td>
                 <td class="px-6 flex-shrink  py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                  <a href="#">{{$project->type}} </a>
+                  <a href="#">{{$project->type->name}} </a>
+
+                </td>
+                <td class="px-6 flex-shrink  py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                  <a href="#">{{$project->state->name}} </a>
 
                 </td>
                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">

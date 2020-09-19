@@ -1,6 +1,5 @@
 <?php
 use Illuminate\Database\Seeder;
-use Faker\Generator as Faker;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -14,9 +13,9 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'first-name' => Str::random(10),
-            'second-name' => Str::random(10),
-            'last-name' => Str::random(10),
+            'first_name' => Str::random(10),
+            'second_name' => Str::random(10),
+            'last_name' => Str::random(10),
             'username' => Str::random(10),
             'profile' => Str::random(10),
             'birthdate' => now(),

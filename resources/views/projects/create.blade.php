@@ -56,24 +56,11 @@
                 </div>
   
                 <div class="col-span-6 sm:col-span-3">
-                  <label for="Project" class="block text-sm font-medium leading-5 text-gray-700">Project Type</label>
-                  <select name="type" class="w-full form-control form-select">
-                    <option value="" selected="selected" disabled="disabled">Choose an option</option> 
-                    <option value="Development">Development</option>
-                    <option value="Humanitarian">Humanitarian</option>
-                    <option value="Emergency">Emergency</option>
-                  </select>
+                 @include('partials.Types')
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                    <label for="Status" class="block text-sm font-medium leading-5 text-gray-700">Project Status</label>
-                    <select name="status" class="w-full form-control form-select">
-                        <option value="" selected="selected" disabled="disabled">Choose an option</option> 
-                        <option value="Active">Active</option>
-                        <option value="Suspended">Suspended</option>
-                        <option value="Pipeline">Pipeline</option>
-                        <option value="Complete">Complete</option>
-                    </select>
+                  @include('partials.Status')
                 </div>
 
                 <div class="col-span-6 sm:col-span-6 lg:col-span-6">
