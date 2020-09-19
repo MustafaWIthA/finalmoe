@@ -120,7 +120,7 @@
                 <p class="text-sm leading-5 text-gray-500">These are delivered via SMS to your mobile phone.</p>
                   @livewire('priorities') 
               </fieldset>
-              <fieldset class="mt-6">
+              {{-- <fieldset class="mt-6">
                 <legend class="text-base leading-6 font-medium text-gray-900">Choose Cross Cutting Thematic Areas</legend>
                 <p class="text-sm leading-5 text-gray-500">These are delivered via SMS to your mobile phone.</p>
                 <div class="mt-4 flex items-center">
@@ -136,7 +136,7 @@
                   </label>
                 </div>
                 
-              </fieldset>
+              </fieldset> --}}
             </div>
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
               <button class="py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-500 focus:outline-none focus:shadow-outline-blue focus:bg-indigo-500 active:bg-indigo-600 transition duration-150 ease-in-out">
