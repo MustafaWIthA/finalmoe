@@ -3,6 +3,7 @@
 namespace App\Nova;
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
@@ -53,16 +54,7 @@ class Activity extends Resource
             Text::make('Activity Discription', 'name'),
             Number::make('Budget','amount'),
             Number::make('target'),
-            Status::make('Status ', 'status')
-                ->loadingWhen(['Active', 'Active'])
-                ->failedWhen(['Suspended'])
-                ->onlyOnIndex(),
-            Select::make('Status')->options([
-                    'Active' => 'Active',
-                    'Suspended' => 'Suspended',
-                    'Pipeline' => 'Pipeline',
-                    'Complete' => 'Complete',
-                ])->hideFromIndex(),
+            BelongsTo::make('State'),
             Text::make('user_id'),
             DateTime::make('start_date'),
             DateTime::make('end_date'),

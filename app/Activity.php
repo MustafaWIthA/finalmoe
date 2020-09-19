@@ -15,6 +15,11 @@ class Activity extends Model
         
     }
 
+    public function State()
+    {
+        return $this->belongsTo(State::class);
+        
+    }
     
 
     protected $dates = [
