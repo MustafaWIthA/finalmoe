@@ -69,7 +69,7 @@ class User extends Resource
                 ->updateRules('unique:users,email,{{resourceId}}'),
             Avatar::make('profile')->onlyOnForms(),
             DateTime::make('birthdate')->onlyOnForms(),
-            Date::make('created_at'),
+           // Date::make('created_at'),
             Password::make('Password')
                 ->onlyOnForms()
                 ->creationRules('required', 'string', 'min:8')
