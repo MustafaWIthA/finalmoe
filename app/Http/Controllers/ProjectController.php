@@ -104,7 +104,11 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('projects.edit',[
+            'Types'=>Type::all(),
+            'Status'=>State::all(),
+            'project'=>$project
+        ]);
     }
 
     /**

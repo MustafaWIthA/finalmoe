@@ -31,7 +31,7 @@
               @foreach ($projects as $project)
               <tr class="bg-white">
                 <td class="px-6 flex-shrink py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
-                <a href="{{route('projects.show', $project->id)}}">{{$project->title}} </a>
+                <a href="{{route('projects.show', $project->id)}}">{{Str::limit($project->title, 40)}} </a>
                 </td>
                 <td class="px-6 flex-shrink  py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                   <a href="#">{{$project->type->name}} </a>
