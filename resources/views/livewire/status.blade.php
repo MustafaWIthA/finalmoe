@@ -55,7 +55,8 @@
 
 {{--  --}}
 <script>
-    new Chart(document.getElementById("sectorprojectcount"), {
+
+new Chart(document.getElementById("sectorprojectcount"), {
     type: 'horizontalBar',
     data: {
       labels: [
