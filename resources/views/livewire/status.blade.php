@@ -235,23 +235,19 @@ new Chart(document.getElementById("bar-chart-grouped"), {
   new Chart(document.getElementById("barchartRegions"), {
       type: 'bar',
       data: {
-        labels: ["1900", "1950", "1999", "2050"],
+        labels: [
+             @foreach ($RegionProjects as $RegionProject)
+                    {{$RegionProject->name}},
+             @endforeach
+        ],
         datasets: [
           {
             label: "Sector",
             backgroundColor: "#3e95cd",
             data: [
-              @foreach ($SectorProjects as $SectorProject)
-                    {{$SectorProject->projects_count}},
+              @foreach ($RegionProjects as $RegionProject)
+                    {{$RegionProject->projects_count}},
              @endforeach
-            ]
-          }, {
-            label: "Satatus",
-            backgroundColor: "#8e5ea2",
-            data: [
-              @foreach ($StateProjects as $StateProject)
-                    {{$StateProject->projects_count}},
-                  @endforeach
             ]
           },
           {

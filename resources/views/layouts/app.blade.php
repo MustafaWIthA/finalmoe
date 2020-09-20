@@ -83,7 +83,6 @@
                     Users
                   </a>
                   @endhasrole
-                  <h3>{{$user->first_name}}</h3>
                 <a href="{{route('projects.index')}}" class="group 
                 flex items-center px-2 py-2 text-base leading-6 font-medium rounded-md 
                 text-indigo-300 hover:text-white hover:bg-indigo-700 
