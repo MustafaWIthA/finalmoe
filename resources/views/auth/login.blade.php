@@ -26,6 +26,7 @@
         <div>
           <img class="h-12 w-auto ml-auto mr-auto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Puntland_State_of_Somalia_Coat_of_Arms.png/640px-Puntland_State_of_Somalia_Coat_of_Arms.png?download" alt="Workflow">
           <h2 class="mt-6 text-3xl leading-9 font-extrabold text-gray-900">
+            ministry of eduction ..<br>
             Sign in to your account
           </h2>
           {{-- <p class="mt-2 text-sm leading-5 text-gray-600 max-w">
