@@ -12,14 +12,14 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/chart.js') }}" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://kit.fontawesome.com/107c56b88c.js" crossorigin="anonymous"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> --}}
+    {{-- <script src="https://kit.fontawesome.com/107c56b88c.js" crossorigin="anonymous"></script> --}}
 
    {{-- <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>  --}}
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> 
+    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
+    {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">  --}}
 
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">

@@ -8,7 +8,7 @@
           <div class="px-4 py-5 sm:p-6">
             <div class="flex items-center">
               
-              <canvas id="myChart2"></canvas>
+              <canvas id="type"></canvas>
             </div>
           </div>
          
@@ -19,7 +19,7 @@
           </h3>
           <div class="px-4 py-5 sm:p-6">
             <div class="flex items-center">
-                <canvas id="sectorprojectcount" ></canvas>       
+                <canvas id="sector" ></canvas>       
               </div>
           </div>
          
@@ -32,7 +32,7 @@
           <div class="px-4 py-5 sm:p-6">
             <div class="flex items-center">
              
-              <canvas id="barchartRegions" ></canvas>
+              <canvas id="region" ></canvas>
 
             </div>
           </div>
@@ -44,7 +44,7 @@
           <div class="px-4 py-5 sm:p-6">
             <div class="flex items-center">
              
-              <canvas id="myChart"></canvas>
+              <canvas id="status"></canvas>
 
             </div>
           </div>
@@ -54,184 +54,7 @@
 
 
 {{--  --}}
-<script>
-
-new Chart(document.getElementById("sectorprojectcount"), {
-    type: 'horizontalBar',
-    data: {
-      labels: [
-        @foreach ($SectorProjects as $SectorProject)
-          '{{$SectorProject->name}}',
-        @endforeach
-      ],
-      datasets: [
-        {
-         
-        maxBarThickness: 3,
-        minBarLength: 3,
-          label: "Projects (Sector)",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45870","#c45450","#c80850","#c32850"],
-          data: [
-            @foreach ($SectorProjects as $SectorProject)
-                  {{$SectorProject->projects_count}},
-           @endforeach
-          ]
-        }
-      ]
-    },
-    options: {
-      scales: {
-            xAxes: [{
-                stacked: true
-            }],
-            
-        },
-      legend: { display: false },
-      title: {
-        display: false,
-        text: 'Projects per Sector'
-      }
-    }
-    
-});
-
-</script>
-
-<script>
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
-      type: 'horizontalBar',
-      data: {
-          labels: [
-            @foreach ($StateProjects as $StateProject)
-                '{{$StateProject->name}}',
-            @endforeach
-            ],
-          datasets: [{
-              label: '# of Projects',
-              
-              data: [ 
-                @foreach ($StateProjects as $StateProject)
-                  {{$StateProject->projects_count}},
-                @endforeach
-              ],
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                 
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-               
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true
-                  },
-                  // gridLines: {
-                  //     display:false
-                  // } 
-              }]
-          }
-      }
-  });
-  </script>
-<script>
-  var ctx = document.getElementById('barchartRegions').getContext('2d');
-  var myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-          labels: [
-            @foreach ($RegionProjects as $RegionProject)
-                '{{$RegionProject->name}}',
-            @endforeach
-            ],
-          datasets: [{
-              label: '# of Projects',
-              
-              data: [ 
-                @foreach ($RegionProjects as $RegionProject)
-                  {{$RegionProject->projects_count}},
-                @endforeach
-              ],
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                 
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-               
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true
-                  },
-                  // gridLines: {
-                  //     display:false
-                  // } 
-              }]
-          }
-      }
-  });
-  </script>
-
-  <script >
-     var ctx = document.getElementById('myChart2').getContext('2d');
-  var myChart = new Chart(ctx, {
-      type: 'doughnut',
-      data: {
-          labels: [
-            @foreach ($TypeProjects as $TypeProject)
-                '{{$TypeProject->name}}',
-            @endforeach
-          ],
-          datasets: [{
-              label: '# of Projects',
-              
-              data: [ 
-                @foreach ($TypeProjects as $TypeProject)
-                {{$TypeProject->projects_count}},
-               @endforeach
-              ],
-              backgroundColor: ["Red", "Blue","Green"],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-               
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: false
-                  },
-                  gridLines: {
-                      display:false
-                  } 
-                  
-              }]
-          }
-      }
-  });
-  </script>
+@include('scripts.type')
+@include('scripts.sector')
+@include('scripts.region')
+@include('scripts.status')
