@@ -12,7 +12,7 @@ class Agency extends Resource
 {
 
 
-    public static $displayInNavigation = false;
+    // public static $displayInNavigation = false;
 
 
     /**

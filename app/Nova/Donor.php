@@ -11,7 +11,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 class Donor extends Resource
 {
 
-    public static $displayInNavigation = false;
+    // public static $displayInNavigation = false;
 
 
     /**
