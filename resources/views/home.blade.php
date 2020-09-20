@@ -5,11 +5,11 @@
   @livewire('status')
   </div>
   <div class="mt-4">
-    @hasrole('SuperAdmin')
-    {{-- @livewire('projects') --}}
+    {{-- @hasrole('SuperAdmin')
+    @livewire('projects')
     @else
         you are not an admin
-    @endhasrole
+    @endhasrole --}}
 
 
   </div>
