@@ -9,7 +9,6 @@ new Chart(document.getElementById("sector"), {
           ],
           datasets: [
             {
-             
               label: "Projects (Sector)",
               backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45870","#c45450","#c80850","#c32850"],
               data: [
@@ -22,14 +21,11 @@ new Chart(document.getElementById("sector"), {
         },
         options: {
           scales: {
-                xAxes: [{
-                    stacked: true
-                }],
+                xAxes: [{  tacked: true }],
                 
             },
           legend: { display: false },
-          title: {
-            display: false,
+          title: { display: false,
             text: 'Projects per Sector'
           }
         }

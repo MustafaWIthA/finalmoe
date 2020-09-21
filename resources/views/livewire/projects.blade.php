@@ -1,21 +1,22 @@
-<thead>
+<table class="min-w-full divide-y divide-gray-200">
+  <thead>
   <tr>
     <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-      <a wire:click.prevent="sortBy('title')" role="button" href="#">
+      <a  role="button" href="#">
         Title
-        @include('includes.sorticon', ['field' => 'name'])
+        {{-- @include('includes.sorticon', ['field' => 'name']) --}}
       </a>
     </th>
     <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-        <a wire:click.prevent="sortBy('type')" role="button" href="#">
+        <a  role="button" href="#">
           Type
-        @include('includes.sorticon', ['field' => 'name'])
+        {{-- @include('includes.sorticon', ['field' => 'name']) --}}
       </a> 
     </th>
     <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-        <a wire:click.prevent="sortBy('state')" role="button" href="#">
+        <a  role="button" href="#">
           State
-        @include('includes.sorticon', ['field' => 'name'])
+        {{-- @include('includes.sorticon', ['field' => 'name']) --}}
       </a> 
     </th>
     <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
@@ -53,3 +54,7 @@
                 </td>
               </tr>
               @endforeach
+
+            </tbody>
+          </table>
+          {{ $projects->links() }}

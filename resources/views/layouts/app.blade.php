@@ -7,22 +7,15 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Ministry') }}</title>
 
     <!-- Scripts -->
+
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/chart.js') }}" ></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> --}}
-    {{-- <script src="https://kit.fontawesome.com/107c56b88c.js" crossorigin="anonymous"></script> --}}
-
-   {{-- <script src="https://www.chartjs.org/dist/2.9.3/Chart.min.js"></script>  --}}
-
-    <!-- Fonts -->
-    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
-    {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">  --}}
-
-    <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" ></script>
+
     @livewireStyles
 </head>
 <body>
@@ -172,11 +165,6 @@
                     Users
                   </a>
                   @endhasrole
-
-
-                
-                 
-
                 </nav>
               </div>
             </div>
@@ -214,34 +202,37 @@
                 </button>
       
                 <!-- Profile dropdown -->
-                <div  class="ml-3 relative">
+                <div x-data="{ isOpen: false }" @keydown.escape="open = false" @click.away="open = false"  class="ml-3 relative">
                   <div>
+                      <button  @click="isOpen = !isOpen" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out" id="user-menu" aria-label="User menu" aria-haspopup="true">
+                        <img class="h-8 w-8 rounded-full" src="/{{{ Auth::user()->profile }}}" alt="">
+                      </button>
                   </div>
-                  <!--
-                    Profile dropdown panel, show/hide based on dropdown state.
-      
-                    Entering: "transition ease-out duration-100"
-                      From: "transform opacity-0 scale-95"
-                      To: "transform opacity-100 scale-100"
-                    Leaving: "transition ease-in duration-75"
-                      From: "transform opacity-100 scale-100"
-                      To: "transform opacity-0 scale-95"
-                  -->
-                  {{-- <div v-if="isOpen" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
+                  
+               
+                  <div x-show="isOpen"
+                          x-transition:enter="transition ease-out duration-100 transform"
+                          x-transition:enter-start="opacity-0 scale-95"
+                          x-transition:enter-end="opacity-100 scale-100"
+                          x-transition:leave="transition ease-in duration-75 transform"
+                          x-transition:leave-start="opacity-100 scale-100"
+                          x-transition:leave-end="opacity-0 scale-95"
+                          class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
                     <div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Your Profile</a>
+                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" 
+                      role="menuitem">{{{ Auth::user()->email }}}</a>
       
                       <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Settings</a>
       
                       <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Sign out</a>
                     </div>
-                  </div> --}}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
       
-          <main class="flex-1 relative overflow-y-auto focus:outline-none" tabindex="0">
+          <main x-show="open" class="flex-1 relative overflow-y-auto focus:outline-none" tabindex="0">
             <div class="pt-2 pb-6 md:py-6">
               {{-- Dashboard --}}
               <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
@@ -264,5 +255,4 @@
       @livewireScripts
       
 </body>
-@include('partials.sectors')
 </html>
