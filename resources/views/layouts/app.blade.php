@@ -15,6 +15,7 @@
     <script src="{{ asset('js/chart.js') }}" ></script>
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" ></script>
+    
 
     @livewireStyles
 </head>
@@ -179,7 +180,7 @@
             </button>
             <div class="flex-1 px-4 flex justify-between">
               <div class="flex-1 flex">
-                <form class="w-full flex md:ml-0" action="#" method="GET">
+                <div class="w-full flex md:ml-0">
                   <label for="search_field" class="sr-only">Search</label>
                   <div class="relative w-full text-gray-400 focus-within:text-gray-600">
                     <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none">
@@ -187,12 +188,12 @@
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />
                       </svg>
                     </div>
-                    
-                    <input class="block w-full h-full pl-8 pr-3 py-2 rounded-md text-gray-900 
-                    placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 sm:text-sm"  type="text" wire:model="search" >
+                    <input wire:model="search" class="block w-full h-full pl-8 pr-3 py-2 rounded-md text-gray-900 
+                    placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 sm:text-sm"  
+                    type="text"  >
 
                   </div>
-                </form>
+                </div>
               </div>
               <div class="ml-4 flex items-center md:ml-6">
                 <button class="p-1 text-gray-400 rounded-full hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:shadow-outline focus:text-gray-500" aria-label="Notifications">
@@ -220,11 +221,18 @@
                           class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
                     <div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
                       <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" 
-                      role="menuitem">{{{ Auth::user()->email }}}</a>
+                      role="menuitem">{{ Auth::user()->email }}</a>
       
-                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Settings</a>
+                      <a href="user/{{ Auth::user()->id }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Settings</a>
       
-                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Sign out</a>
+                      <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem"
+                          href="{{ route('logout') }}"  onclick="event.preventDefault(); this.closest('form').submit();"
+                          >
+                            {{ __(' Sign out') }}
+                        </a>
+                    </form>
                     </div>
                   </div>
                 </div>

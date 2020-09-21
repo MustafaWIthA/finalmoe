@@ -1,10 +1,17 @@
+<div>
+
+<div class="mb-5">
+  <input wire:model="search" class="block w-full h-full pl-8 pr-3 py-2 rounded-md text-gray-900 
+  placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 sm:text-sm" " 
+  type="search" placeholder="Search projects...">
+</div>
 <table class="min-w-full divide-y divide-gray-200">
   <thead>
   <tr>
     <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-      <a  role="button" href="#">
+      <a  wire:click.prevent="sortBy('title')" role="button" href="#">
         Title
-        {{-- @include('includes.sorticon', ['field' => 'name']) --}}
+        @include('includes.sorticon', ['field' => 'name'])
       </a>
     </th>
     <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
@@ -20,10 +27,17 @@
       </a> 
     </th>
     <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+      <a  wire:click.prevent="sortBy('start_date')" role="button" href="#">
         Start Date
+        @include('includes.sorticon', ['field' => 'name'])
+      </a>  
+     
     </th>
     <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+      <a  wire:click.prevent="sortBy('start_date')" role="button" href="#">
         End Date
+        @include('includes.sorticon', ['field' => 'name'])
+      </a> 
     </th>
     <th class="px-6 py-3 bg-gray-50"></th>
   </tr>
@@ -58,3 +72,5 @@
             </tbody>
           </table>
           {{ $projects->links() }}
+
+        </div>

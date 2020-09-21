@@ -12,37 +12,34 @@ class Projects extends Component
 
     use WithPagination;
 
-    // public $perPage = 5;
-    // public $sortField='title';
-    // public $sortAsc = false;
-    // public $search = '';
+    public $perPage = 10;
+    public $sortField='title';
+    public $sortAsc = false;
+    public $search = '';
 
-    // public function sortBy($field)
-    // {
-    //     if ($this->sortField === $field) {
-    //         $this->sortAsc = ! $this->sortAsc;
-    //     } else {
-    //         $this->sortAsc = true;
-    //     }
+    public function sortBy($field)
+    {
+        if ($this->sortField === $field) {
+            $this->sortAsc = ! $this->sortAsc;
+        } else {
+            $this->sortAsc = true;
+        }
 
-    //     $this->sortField = $field;
-    // }
+        $this->sortField = $field;
+    }
 
   
 
     public function render()
     {
-        // $projects = Project::query()
-        //     ->search($this->search)
-        //     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-        //     ->paginate($this->perPage);
+        $projects = Project::query()
+            ->search($this->search)
+            ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+            ->paginate($this->perPage);
             return view('livewire.projects',[
-                        'projects'=> Project::paginate(10),
+                        'projects'=> $projects,
                         ]);
     }
 
-    public function paginationView()
-    {
-        return 'livewire.custom-pagination-links-view';
-    }
+   
 }
