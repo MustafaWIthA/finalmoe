@@ -7,7 +7,6 @@
           </h3>
           <div class="px-4 py-5 sm:p-6">
             <div class="flex items-center">
-              
               <canvas id="type"></canvas>
             </div>
           </div>
