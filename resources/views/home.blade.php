@@ -2,6 +2,7 @@
 
 @section('content')
   <div>
+  @livewire('numbers')
   @livewire('status')
   </div>
   <div class="mt-4">
