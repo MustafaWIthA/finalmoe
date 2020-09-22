@@ -65,9 +65,13 @@ class Project extends Model
     {
         return $query
         ->where('title','like','%'.$val.'%')
+        ->orwhere('start_date', 'like', '%'.$val.'%')
+        ->orwhere('end_date', 'like', '%'.$val.'%')
         ;
 
     }
+
+    
 
 
 
