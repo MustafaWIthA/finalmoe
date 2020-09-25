@@ -34,9 +34,9 @@
           },
           options: {
               scales: {
-                  yAxes: [{
+                  xAxes: [{
                       ticks: {
-                          beginAtZero: true
+                        min: 0
                       },
                       // gridLines: {
                       //     display:false

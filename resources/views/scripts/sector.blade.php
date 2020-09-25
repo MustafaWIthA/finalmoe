@@ -28,8 +28,6 @@ new Chart(document.getElementById("sector"), {
                   xAxes: [{
                     ticks: {
                       min: 0
-                      
-                   // beginAtZero: 1
                 },
                     
                   }]
