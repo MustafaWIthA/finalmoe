@@ -21,7 +21,7 @@ new Chart(document.getElementById("sector"), {
         },
         options: {
           scales: {
-                xAxes: [{  tacked: true }],
+                xAxes: [{  tacked: false }],
                 
             },
           legend: { display: false },
