@@ -19,7 +19,22 @@ new Chart(document.getElementById("sector"), {
               ]
             }
           ]
-        },
+        },    
+
+        options: {
+          scaleBeginAtZero:true,
+              responsive: true,
+              scales: {
+                  xAxes: [{
+                    ticks: {
+                      min: 0
+                      
+                   // beginAtZero: 1
+                },
+                    
+                  }]
+              }
+          }
        
         
     });
