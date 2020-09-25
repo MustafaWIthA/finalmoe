@@ -35,7 +35,7 @@
               scales: {
                   xAxes: [{
                       ticks: {
-                          beginAtZero: true
+                        min: 0
                       },
                       // gridLines: {
                       //     display:false
