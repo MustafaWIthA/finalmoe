@@ -9,7 +9,9 @@ new Chart(document.getElementById("sector"), {
           ],
           datasets: [
             {
-              label: "Projects (Sector)",
+                @foreach ($SectorProjects as $SectorProject)
+              label: '{{$SectorProject->name}}',
+               @endforeach
               backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45870","#c45450","#c80850","#c32850"],
               data: [
                 @foreach ($SectorProjects as $SectorProject)
@@ -19,20 +21,7 @@ new Chart(document.getElementById("sector"), {
             }
           ]
         },
-        options: {
-          scales: {
-                xAxes: [{  tacked: false }],
-                yAxes: [{
-                      ticks: {
-                          beginAtZero: true
-                      },
-                
-            },
-          legend: { display: false },
-          title: { display: false,
-            text: 'Projects per Sector'
-          }
-        }
+       
         
     });
     
