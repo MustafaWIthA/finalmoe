@@ -22,6 +22,10 @@ new Chart(document.getElementById("sector"), {
         options: {
           scales: {
                 xAxes: [{  tacked: false }],
+                yAxes: [{
+                      ticks: {
+                          beginAtZero: true
+                      },
                 
             },
           legend: { display: false },
