@@ -15,8 +15,8 @@ class Numbers extends Component
         $totalprojects = Project::count();
         return view('livewire.numbers',[
             'thisyear' =>$thisyear,
-            'totalprojects'=>Project::whereYear('created_at', $thisyear)->count(),
-            'totalbudget'=>Project::whereYear('created_at', $thisyear)->sum('budget'),
+            'totalprojects'=>Project::whereYear('start_date', $thisyear)->count(),
+            'totalbudget'=>Project::whereYear('start_date', $thisyear)->sum('budget'),
         ]);
     }
 }
