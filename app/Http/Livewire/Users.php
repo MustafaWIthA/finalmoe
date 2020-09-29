@@ -17,7 +17,7 @@ class Users extends Component
 
         $users = User::all();
         return view('livewire.users',
-                ['users'=> User::paginate(1),
+                ['users'=> User::paginate(10),
                 
                 ]);
     }

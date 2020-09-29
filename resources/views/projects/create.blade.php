@@ -4,6 +4,7 @@
 @endsection
 @section('content')
 <div>
+  
   <div class="mt-10 sm:mt-0">
     <div class="md:grid md:grid-cols-3 md:gap-6">
       <div class="md:col-span-1">
@@ -149,14 +150,77 @@
                 
               </fieldset> --}}
             </div>
+            
+         
+          </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  <div class="hidden sm:block">
+    <div class="py-5">
+      <div class="border-t border-gray-200"></div>
+    </div>
+  </div>
+  <div class="mt-10 sm:mt-0">
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <div class="md:col-span-1">
+        <div class="px-4 sm:px-0">
+          <h3 class="text-lg font-medium leading-6 text-gray-900">Region and Districts Section</h3>
+          <p class="mt-1 text-sm leading-5 text-gray-600">
+            Choose the right Sector and Priority by clicking one or more sectors
+          </p>
+        </div>
+      </div>
+      <div class="mt-5 md:mt-0 md:col-span-2">
+          <div class="shadow overflow-hidden sm:rounded-md">
+            <div class="px-4 py-5 bg-white sm:p-6">
+              <fieldset>
+                <legend class="text-base leading-6 font-medium text-gray-900">Choose Region </legend>
+                <div class="mt-4">
+                  <div x-data="{ region: false }">
+                    @foreach ($Regions as $Region)
+                    <div class="mt-4">
+                    <div class="flex items-center">
+                        <input @click="region = true"  type="checkbox" name="regions[]" value="{{$Region->id}}"
+                        class="form-checkbox h-5 w-5 text-indigo-600 transition duration-150 ease-in-out">
+                        <label for="push_everything" class="ml-3">
+                        <span class="block text-sm leading-5 font-extrabold text-green-700">{{$Region->name}}</span>
+                        </label>                        
+                      </div> 
+                    </div>
+                    @foreach ($Region->districts as $District)
+                        <div class="mt-4 ml-4" x-show="region">
+                          <div class="flex items-center">
+                            <input  type="checkbox" name="districts[]" value="{{$District->id}}"
+                            class="form-checkbox h-3 w-3 text-indigo-600 transition duration-150 ease-in-out">
+                            <label for="push_everything" class="ml-3">
+                            <span class="block text-sm leading-5 font-normal text-gray-700">{{$District->name}}</span>
+                            </label>
+                          </div>
+                        </div>
+                        @endforeach
+                    @endforeach
+                </div>
+                </div>
+              </fieldset>
+            
+            </div>
+            
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-              <button class="py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-500 focus:outline-none focus:shadow-outline-blue focus:bg-indigo-500 active:bg-indigo-600 transition duration-150 ease-in-out">
+              <button class="py-2 px-4 border border-transparent text-sm font-medium rounded-md 
+                text-white bg-indigo-600 shadow-sm hover:bg-indigo-500 focus:outline-none 
+                focus:shadow-outline-blue focus:bg-indigo-500 active:bg-indigo-600 transition 
+                duration-150 ease-in-out">
                 Save
               </button>
             </div>
           </div>
         </form>
+        
       </div>
+      
     </div>
   </div>
   </div>

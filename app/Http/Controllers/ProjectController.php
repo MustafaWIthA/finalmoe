@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+use App\Region;
 use App\State;
 use App\Type;
 use Illuminate\Http\Request;
@@ -29,7 +30,11 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
        
-         return view('projects.show', compact('project'));
+         return view('projects.show', [
+                'project'=>$project,
+                'Status'=>State::all(),
+             
+             ]);
     }
     /**
      * Show the form for creating a new resource.
@@ -40,7 +45,9 @@ class ProjectController extends Controller
     {
         return view('projects.create',[
             'Types'=>Type::all(),
-            'Status'=>State::all()
+            'Status'=>State::all(),
+            'Regions'=>Region::all(),
+
         ]);
     }
 
@@ -66,6 +73,8 @@ class ProjectController extends Controller
             'end_date' => 'required|max:255',
             'sectors' => 'required',
             'priorities' => 'required',
+            'regions' => 'required',
+            // 'districts' => 'districts',
         ]);
 
        
@@ -84,13 +93,17 @@ class ProjectController extends Controller
         ]);
             $project->save();
 
+        $regions = $attributes['regions'];
+       // $districts = $attributes['districts'];
         $priorities = $attributes['priorities'];
         $sectors = $attributes['sectors'];
+        $project->Regions()->attach($regions);
+        //$project->Districts()->attach($districts);
         $project->Sectors()->attach($sectors);
         $project->priorities()->attach($priorities);  // ->Priorities()->sync($priorities);
 
         //return $project;
-       return redirect()->route('projects.index')->with('success','the Project has been created successfully!');;
+       return redirect()->route('projects.index')->with('success','the Project has been created successfully!');
 
     }
 
@@ -107,7 +120,8 @@ class ProjectController extends Controller
         return view('projects.edit',[
             'Types'=>Type::all(),
             'Status'=>State::all(),
-            'project'=>$project
+            'project'=>$project,
+            'Regions'=>Region::all(),
         ]);
     }
 

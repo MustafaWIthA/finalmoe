@@ -35,7 +35,29 @@ class ActivityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attributes = request()->validate([
+            'name' => 'required|max:255',
+            'target' => 'required|max:255',
+            'state_id' => 'required|max:25',
+            'project_id' => 'required|max:25',
+            'budget' => 'required',
+            'start_date' => 'required|max:255',
+            'end_date' => 'required|max:255',
+        ]);
+
+        $project = new Activity([
+            'user_id' => auth()->id(),
+            'name' => $request['name'],
+            'target' => $request['target'],
+            'project_id' => $request['project_id'],
+            'state_id' => $request['state_id'],
+            'budget' => $request['budget'],
+            'start_date' => $request['start_date'],
+            'end_date' => $request['end_date'],
+        ]);
+            $project->save();
+
+            return back();
     }
 
     /**
