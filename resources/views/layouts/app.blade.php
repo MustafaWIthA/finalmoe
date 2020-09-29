@@ -274,11 +274,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script>
   $("#agencies").select2({
-          placeholder: "Select a programming language",
+          placeholder: "Select Agencies",
           allowClear: true
       });
   $("#donors").select2({
-      placeholder: "Select a programming language",
+      placeholder: "Select Donors",
+      allowClear: true
+  });
+  $("#districts").select2({
+      placeholder: "Select a districts",
       allowClear: true
   });
 </script>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\District;
 use App\Donor;
 use App\Project;
 use App\Region;
@@ -48,6 +49,7 @@ class ProjectController extends Controller
             'Types'=>Type::all(),
             'Status'=>State::all(),
             'Regions'=>Region::all(),
+            'Districts'=>District::all(),
             'Donors'=>Donor::all(),
 
         ]);

@@ -55,20 +55,14 @@
                                   rows="3" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
                       </div>
                 </div>
-                <div class="col-span-6">
-                 @include('partials.donors')
-                 {{-- <label for="Project" class="block text-sm font-medium leading-5 text-gray-700">Project Type</label>
-                    <select multiple="multiple" name="donors[]" class="donors w-full form-control form-select">
-                        <option value="" selected="selected" disabled="disabled">Choose a Project Donor(s)</option> 
-                        @foreach ($Donors as $Donor)
-                      <option value="{{$Donor->id}}">{{$Donor->name}}</option>
-                      @endforeach  
-                    </select> --}}
+                  <div class="col-span-3">
+                       @include('partials.donors')
+                  </div>
+                  <div class="col-span-3">
+                       @include('partials.agencies')
                   </div>
                 </div>
-                <div class="col-span-6 sm:col-span-3">
-                  @include('partials.agencies')
-                 </div>
+
                 <div class="col-span-6 sm:col-span-3">
                  @include('partials.types')
                 </div>
@@ -202,20 +196,17 @@
                         </label>                        
                       </div> 
                     </div>
-                    @foreach ($Region->districts as $District)
-                        <div class="mt-4 ml-4" x-show="region">
-                          <div class="flex items-center">
-                            <input  type="checkbox" name="districts[]" value="{{$District->id}}"
-                            class="form-checkbox h-3 w-3 text-indigo-600 transition duration-150 ease-in-out">
-                            <label for="push_everything" class="ml-3">
-                            <span class="block text-sm leading-5 font-normal text-gray-700">{{$District->name}}</span>
-                            </label>
-                          </div>
-                        </div>
-                        @endforeach
                     @endforeach
                 </div>
                 </div>
+              </fieldset>
+              <fieldset class="mt-6">
+                <legend class="text-base leading-6 font-medium text-gray-900">Choose Districts/ Areas</legend>
+                <div class="mt-4 flex items-center">
+                  @include('partials.districts')
+                </div>
+                
+                
               </fieldset>
             
             </div>
