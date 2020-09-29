@@ -268,9 +268,18 @@
       
 </body>
 </html>
-<script type="text/javascript">
-  $(document).ready(function() {
-      $('.donors').select2();
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Select2 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script>
+  $("#agencies").select2({
+          placeholder: "Select a programming language",
+          allowClear: true
+      });
+  $("#donors").select2({
+      placeholder: "Select a programming language",
+      allowClear: true
   });
 </script>
 

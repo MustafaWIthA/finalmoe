@@ -66,14 +66,12 @@
                     </select> --}}
                   </div>
                 </div>
-  
+                <div class="col-span-6 sm:col-span-3">
+                  @include('partials.agencies')
+                 </div>
                 <div class="col-span-6 sm:col-span-3">
                  @include('partials.types')
                 </div>
-                <div class="col-span-6 sm:col-span-3">
-                 @include('partials.agencies')
-                </div>
-
                 <div class="col-span-6 sm:col-span-3">
                   @include('partials.status')
                 </div>
