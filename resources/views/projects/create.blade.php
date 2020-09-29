@@ -55,9 +55,23 @@
                                   rows="3" class="form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"></textarea>
                       </div>
                 </div>
+                <div class="col-span-6">
+                 @include('partials.donors')
+                 {{-- <label for="Project" class="block text-sm font-medium leading-5 text-gray-700">Project Type</label>
+                    <select multiple="multiple" name="donors[]" class="donors w-full form-control form-select">
+                        <option value="" selected="selected" disabled="disabled">Choose a Project Donor(s)</option> 
+                        @foreach ($Donors as $Donor)
+                      <option value="{{$Donor->id}}">{{$Donor->name}}</option>
+                      @endforeach  
+                    </select> --}}
+                  </div>
+                </div>
   
                 <div class="col-span-6 sm:col-span-3">
                  @include('partials.types')
+                </div>
+                <div class="col-span-6 sm:col-span-3">
+                 @include('partials.agencies')
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
@@ -226,3 +240,5 @@
   </div>
   
 @endsection
+
+

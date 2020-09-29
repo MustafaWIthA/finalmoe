@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Donor;
 use App\Project;
 use App\Region;
 use App\State;
@@ -47,6 +48,7 @@ class ProjectController extends Controller
             'Types'=>Type::all(),
             'Status'=>State::all(),
             'Regions'=>Region::all(),
+            'Donors'=>Donor::all(),
 
         ]);
     }
@@ -74,6 +76,8 @@ class ProjectController extends Controller
             'sectors' => 'required',
             'priorities' => 'required',
             'regions' => 'required',
+            'donors' => 'required',
+            'agencies' => 'required',
             // 'districts' => 'districts',
         ]);
 
@@ -94,10 +98,14 @@ class ProjectController extends Controller
             $project->save();
 
         $regions = $attributes['regions'];
+        $donors = $attributes['donors'];
+        $agencies = $attributes['agencies'];
        // $districts = $attributes['districts'];
         $priorities = $attributes['priorities'];
         $sectors = $attributes['sectors'];
         $project->Regions()->attach($regions);
+        $project->Donors()->attach($donors);
+        $project->Agencies()->attach($agencies);
         //$project->Districts()->attach($districts);
         $project->Sectors()->attach($sectors);
         $project->priorities()->attach($priorities);  // ->Priorities()->sync($priorities);

@@ -16,25 +16,24 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" ></script>
     <script src="{{ asset('js/chart.js') }}" defer></script>
-    
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
     @livewireStyles
 </head>
 <body>
     <div class="h-screen flex overflow-hidden bg-gray-100">
         <!-- Off-canvas menu for mobile -->
-        <div class="md:hidden">
-          <div class="fixed inset-0 flex z-40">
-            <!--
-              Off-canvas menu overlay, show/hide based on off-canvas menu state.
-      
-              Entering: "transition-opacity ease-linear duration-300"
-                From: "opacity-0"
-                To: "opacity-100"
-              Leaving: "transition-opacity ease-linear duration-300"
-                From: "opacity-100"
-                To: "opacity-0"
-            -->
+        <div class="md:hidden" x-data="{ isactive: false }">
+          <div class="fixed inset-0 flex z-40" x-show="isactive"
+           
+                    Entering: "transition-opacity ease-linear duration-300"
+                      From: "opacity-0"
+                      To: "opacity-100"
+                    Leaving: "transition-opacity ease-linear duration-300"
+                      From: "opacity-100"
+                      To: "opacity-0"
+                    >
             <div class="fixed inset-0">
               <div class="absolute inset-0 bg-gray-600 opacity-75"></div>
             </div>
@@ -49,7 +48,7 @@
                 To: "-translate-x-full"
             -->
             <div class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-indigo-800">
-              <div class="absolute top-0 right-0 -mr-14 p-1">
+              <div class="absolute top-0 right-0 -mr-14 p-1" >
                 <button class="flex items-center justify-center h-12 w-12 rounded-full focus:outline-none focus:bg-gray-600" aria-label="Close sidebar">
                   <svg class="h-6 w-6 text-white" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -67,7 +66,7 @@
                     <svg class="mr-4 h-6 w-6 text-indigo-400 group-hover:text-indigo-300 group-focus:text-indigo-300 transition ease-in-out duration-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                     </svg>
-                    Dashboards:
+                    Dashboard
                   </a>
                   @hasrole('SuperAdmin')                  
                   
@@ -253,7 +252,11 @@
               <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
                 <!-- main your content -->
                 <div class="py-4">
-                  @yield('content')                
+                  @yield('content') 
+                  <div class="col-span-6">
+                    {{-- @include('partials.donors') --}}
+                    
+                                           
                 </div>
                 <!-- /End main -->
               </div>
@@ -265,3 +268,9 @@
       
 </body>
 </html>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('.donors').select2();
+  });
+</script>
+
