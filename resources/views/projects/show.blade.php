@@ -51,7 +51,7 @@
       
 @endsection
 @section('content')
-    @include('partials.projectdetails')
+    @include('partials.projectdetails', ['project' => $project])
 @endsection
 
 

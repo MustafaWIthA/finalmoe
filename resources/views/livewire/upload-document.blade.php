@@ -19,16 +19,25 @@
                   <div class="flex items-start justify-between space-x-3">
                     <div class="space-y-1">
                       <h2 class="text-lg leading-7 font-medium text-gray-900">
-                        New project
+                        Upload Document
                       </h2>
+                      
                       <p class="text-sm text-gray-500 leading-5">
-                        Get started by filling in the information below to create your new project.
+                        <div  x-data="{ isUploading: false, progress: 0 }"
+                                x-on:livewire-upload-start="isUploading = true"
+                                x-on:livewire-upload-finish="isUploading = false"
+                                x-on:livewire-upload-error="isUploading = false"
+                                x-on:livewire-upload-progress="progress = $event.detail.progress"
+                            >
+                        </div>
+                        <div wire:loading wire:target="document">Uploading...</div>
+                        @error('document') <span class="error">{{ $message }}</span> @enderror
                       </p>
                     </div>
                     <div class="h-7 flex items-center">
                       <button aria-label="Close panel" class="text-gray-400 hover:text-gray-500 transition ease-in-out duration-150">
                         <!-- Heroicon name: x -->
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg @click="isDoc = !isDoc" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                       </button>
@@ -47,11 +56,10 @@
                     <div class="sm:col-span-2">
                       <div class="rounded-md shadow-sm">
                         <form wire:submit.prevent="save">
-                          <input type="number" wire:model="project_id" value="22" placeholder="project id">
+                        <input type="number" wire:model="project_id" value="23" disabled>
                           <input type="file" wire:model="document">
-                          @error('document') <span class="error">{{ $message }}</span> @enderror
                           {{-- <button type="submit">Save Docuemnt</button> --}}
-                     
+                         
                       </div>
                     </div>
                   </div>

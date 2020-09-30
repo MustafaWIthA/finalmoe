@@ -9,15 +9,16 @@
 
     <title>{{ config('app.name', 'Ministry') }}</title>
 
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" ></script>
+    <script src="{{ asset('js/chart.js') }}" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     {{--  --}}
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" ></script>
-    <script src="{{ asset('js/chart.js') }}" defer></script>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    
 
     @livewireStyles
 </head>
