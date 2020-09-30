@@ -46,12 +46,16 @@ class HomeController extends Controller
      */
     public function show()
     {
-        $r= Region::findOrfail(5);
-        $p=Priority::findOrfail(2);
+        $r= Region::findOrfail(6);
+        $p=Priority::findOrfail(1);
         $s=Sector::findOrfail(1);
+        $state_id=1;
+        $type_id=1;
 
        
-          $projects = Project::whereHas('regions', function($q) use ($r){
+          $projects = Project::where('state_id', $state_id)
+                ->where('type_id', $type_id)
+                ->whereHas('regions', function($q) use ($r){
                 $q->whereIn('region_id', $r);})
                   ->WhereHas('priorities',function ($q) use ($p){
                 $q->whereIn('priority_id', $p );})
