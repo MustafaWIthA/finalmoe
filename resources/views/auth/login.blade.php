@@ -20,21 +20,20 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 </head>
 <body class="bg-blue-600 bg-opacity-75">
-  <div class="min-h-screen bg-white flex">
+  <div class="min-h-screen bg-green-200 flex">
     <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
       <div class="mx-auto w-full max-w-sm lg:w-96">
         <div>
           <img class="h-12 w-auto ml-auto mr-auto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Puntland_State_of_Somalia_Coat_of_Arms.png/640px-Puntland_State_of_Somalia_Coat_of_Arms.png?download" alt="Workflow">
-          <h2 class="mt-6 text-3xl leading-9 font-extrabold text-gray-900">
-            ministry of eduction ..<br>
-            Sign in to your account
-          </h2>
-          {{-- <p class="mt-2 text-sm leading-5 text-gray-600 max-w">
-            Or
-            <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-              start your 14-day free trial
-            </a>
-          </p> --}}
+          <h5 class="mt-6 text-center  text-sm leading-9 font-extrabold text-gray-900">
+            PUNTLAND MINISTRY OF EDUCATION AND HIGHER EDUCATION
+          </h5>
+          <p class="mt-2 text-sm leading-5 text-center text-gray-600 max-w">
+           
+            <span class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+              Sign in to your account
+            </span>
+          </p>
         </div>
   
         <div class="mt-8">
@@ -83,7 +82,7 @@
   
               <div>
                 <span class="block w-full rounded-md shadow-sm">
-                  <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                  <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-500 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
                     Sign in
                   </button>
                 </span>

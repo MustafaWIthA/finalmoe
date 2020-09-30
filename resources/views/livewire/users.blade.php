@@ -46,7 +46,7 @@
                       </td>
                       <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
                         <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Delete</a>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-900">View</a>
                       </td>
                     </tr>
                     @endforeach

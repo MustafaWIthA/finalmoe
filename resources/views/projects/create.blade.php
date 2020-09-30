@@ -175,7 +175,7 @@
         <div class="px-4 sm:px-0">
           <h3 class="text-lg font-medium leading-6 text-gray-900">Region and Districts Section</h3>
           <p class="mt-1 text-sm leading-5 text-gray-600">
-            Choose the right Sector and Priority by clicking one or more sectors
+            Choose the right Region and District by clicking one or more sectors
           </p>
         </div>
       </div>
