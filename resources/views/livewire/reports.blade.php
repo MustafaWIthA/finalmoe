@@ -19,9 +19,13 @@
     </select>
   </div>
 
-  @foreach ($projects as $project)
-      {{$project->title}} <br>
-  @endforeach
+  @forelse ($projects as $project)
+    <li> {{$project->title}} </li>
+@empty
+    <p>Nothing back</p>
+@endforelse
+
+ 
 </div>
 
 
