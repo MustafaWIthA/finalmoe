@@ -80,7 +80,7 @@ class ProjectController extends Controller
             'regions' => 'required',
             'donors' => 'required',
             'agencies' => 'required',
-            // 'districts' => 'districts',
+            'districts' => 'districts',
         ]);
 
        
@@ -102,13 +102,13 @@ class ProjectController extends Controller
         $regions = $attributes['regions'];
         $donors = $attributes['donors'];
         $agencies = $attributes['agencies'];
-       // $districts = $attributes['districts'];
+       $districts = $attributes['districts'];
         $priorities = $attributes['priorities'];
         $sectors = $attributes['sectors'];
         $project->Regions()->attach($regions);
         $project->Donors()->attach($donors);
         $project->Agencies()->attach($agencies);
-        //$project->Districts()->attach($districts);
+        $project->Districts()->attach($districts);
         $project->Sectors()->attach($sectors);
         $project->priorities()->attach($priorities);  // ->Priorities()->sync($priorities);
 
