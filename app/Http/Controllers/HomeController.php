@@ -46,7 +46,7 @@ class HomeController extends Controller
      */
     public function show()
     {
-        $r= Region::findOrfail(6);
+        $r= Region::findOrfail(1);
         $p=Priority::findOrfail(1);
         $s=Sector::findOrfail(1);
         $state_id=1;
