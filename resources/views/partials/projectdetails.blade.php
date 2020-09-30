@@ -263,17 +263,17 @@
                   </td>
                  
                   <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
-                    {{$activity->budget}}
+                    {{number_format($activity->budget)}}
                   </td>
                   <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
                     {{$activity->target}}
                   </td>
                   <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                    {{$activity->start_date}}
+                    {{($activity->start_date)->diffForHumans()}}
 
                   </td>
                   <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
-                    {{$activity->end_date}}
+                    {{($activity->end_date)->diffForHumans()}}
 
                   </td>
                 </tr>
