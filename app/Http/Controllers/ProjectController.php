@@ -113,7 +113,8 @@ class ProjectController extends Controller
         $project->priorities()->attach($priorities);  // ->Priorities()->sync($priorities);
 
         //return $project;
-       return redirect()->route('projects.index')->with('success','the Project has been created successfully!');
+      // return redirect()->route('projects.show')->with('success','the Project has been created successfully!');
+      return redirect('projects/'.$project->id);
 
     }
 

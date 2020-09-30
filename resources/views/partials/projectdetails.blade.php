@@ -21,9 +21,9 @@
         <button @click="currentTab = 'fourth'" class="w-1/4 py-4 px-1 text-center border-b-2 border-transparent font-medium text-sm leading-5 text-white hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-indigo-800 focus:border-indigo-700">
           Activities
         </button>
-        <button @click="currentTab = 'third'" class="w-1/4 py-4 px-1 text-center border-b-2 border-transparent font-medium text-sm leading-5 text-white hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-indigo-800 focus:border-indigo-700">
+        {{-- <button @click="currentTab = 'third'" class="w-1/4 py-4 px-1 text-center border-b-2 border-transparent font-medium text-sm leading-5 text-white hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-indigo-800 focus:border-indigo-700">
           Project Regions
-        </button>
+        </button> --}}
       </nav>
     </div>
   </div>
@@ -35,6 +35,26 @@
       <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
         {{$project->description}}
       </dd>
+      <dt class="text-sm leading-5 font-medium text-gray-900">
+        Project Districts
+      </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+          @forelse ($project->districts as $district)
+              {{$district->name}},
+          @empty
+            <h1>nothin is added yet</h1>
+          @endforelse
+        </dd>
+      <dt class="text-sm leading-5 font-medium text-gray-900">
+        Project Regions
+      </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+          @forelse ($project->regions as $region)
+              {{$region->name}},
+          @empty
+            <h1>nothin is added yet</h1>
+          @endforelse
+        </dd>
     </div>
   </div>
 
