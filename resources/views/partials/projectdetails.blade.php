@@ -59,6 +59,22 @@
   </div>
 
 <div x-show="currentTab === 'second'" class="bg-white shadow sm:rounded-lg">
+  <div x-data="{ isDoc: false }">
+    <span class="shadow-sm rounded-md float-right" >
+      <button type="button"  @click="isDoc = !isDoc" 
+          class="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
+          Upload new Document
+      </button>
+    </span>
+
+    <div class="fixed inset-0 overflow-hidden mt-12" x-show="isDoc">
+      <div class="fixed inset-0 overflow-hidden">
+        @livewire('upload-document')          
+        </div>
+    </div>
+
+  </div>
+
   <div class="mt-8 sm:mt-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-t sm:border-gray-200 sm:px-6 sm:py-5">
     <dt class="text-sm leading-5 font-medium text-gray-900">
       Attachments
@@ -111,118 +127,121 @@
           Create new Activity
       </button>
     </span>
-{{-- start of a panel activities --}}
-<div class="fixed inset-0 overflow-hidden mt-12" x-show="isNew">
-  <div class="absolute inset-0 overflow-hidden">
-    <section class="absolute inset-y-0 pl-16 max-w-full right-0 flex" >
-      <div class="w-screen max-w-md">
-        <div class="h-full divide-y divide-gray-200 flex flex-col bg-white shadow-xl">
-          <div class="flex-1 h-0 overflow-y-auto">
-            <header class="space-y-1 py-6 px-4 bg-green-700 sm:px-6">
-              <div class="flex items-center justify-between space-x-3">
-                <h2 class="text-lg leading-7 font-medium text-white">
-                  New Activity
-                </h2>
-                <div class="h-7 flex items-center">
-                  <button @click="isNew = !isNew" aria-label="Close panel" class="text-indigo-200 hover:text-white transition ease-in-out duration-150">
-                    <!-- Heroicon name: x -->
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </header>
-            <div class="flex-1 flex flex-col justify-between">
-            <form method="POST" action="{{ route('activities.store') }}">
-              @csrf
-            <input type="number" name="project_id" value="{{$project->id}}" hidden>
-              <div class="px-4 divide-y divide-gray-200 sm:px-6">
-                <div class="space-y-2 pt-6 pb-5">
-                  <div class="space-y-1">
-                    <label for="project_name" class="block text-sm font-medium leading-5 text-gray-900">
-                      Activity name
-                    </label>
-                    <div class="relative rounded-md shadow-sm">
-                      <input  type="text" name="name"
-                      class="form-input block w-full sm:text-sm sm:leading-5 transition ease-in-out duration-150">
-                    </div>
-                  </div>
-                  <div class="space-y-1">
-                    <label for="description" class="block text-sm font-medium leading-5 text-gray-900">
-                      Start Date
-                    </label>
-                    <div class="relative rounded-md shadow-sm">
-                      <input type="date" name="start_date" 
-                      class="form-input block w-full sm:text-sm sm:leading-1">
-                    </div>
-                  </div>
-                  <div class="space-y-2">
-                    <label for="description" class="block text-sm font-medium leading-5 text-gray-900">
-                      End Date
-                    </label>
-                    <div class="relative rounded-md shadow-sm">
-                      <input type="date" name="end_date" 
-                      class="form-input block w-full  sm:text-sm sm:leading-1">
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Target</label>
-                    <div class="mt-1 flex rounded-md shadow-sm">
-                      <div class="relative flex-grow focus-within:z-10">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <!-- Heroicon name: users -->
-                          <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-                          </svg>
+
+   
+    
+        {{-- start of a panel activities --}}
+        <div class="fixed inset-0 overflow-hidden mt-12" x-show="isNew">
+          <div class="absolute inset-0 overflow-hidden">
+            <section class="absolute inset-y-0 pl-16 max-w-full right-0 flex" >
+              <div class="w-screen max-w-md">
+                <div class="h-full divide-y divide-gray-200 flex flex-col bg-white shadow-xl">
+                  <div class="flex-1 h-0 overflow-y-auto">
+                    <header class="space-y-1 py-6 px-4 bg-green-700 sm:px-6">
+                      <div class="flex items-center justify-between space-x-3">
+                        <h2 class="text-lg leading-7 font-medium text-white">
+                          New Activity
+                        </h2>
+                        <div class="h-7 flex items-center">
+                          <button @click="isNew = !isNew" aria-label="Close panel" class="text-indigo-200 hover:text-white transition ease-in-out duration-150">
+                            <!-- Heroicon name: x -->
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                          </button>
                         </div>
-                        <input  name="target" type="number"
-                            class="form-input block w-full rounded-none rounded-l-md pl-10 transition ease-in-out duration-150 sm:text-sm sm:leading-5" placeholder="John Doe">
                       </div>
-                     
-                    </div>
-                  </div>
-                  <div>
-                    <label for="price" class="block text-sm leading-5 font-medium text-gray-700">budget</label>
-                    <div class="mt-1 relative rounded-md shadow-sm">
-                      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <span class="text-gray-500 sm:text-sm sm:leading-5">
-                          $
-                        </span>
-                      </div>
-                      <input name="budget" type="number" class="form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5" placeholder="0.00">
-                      <div class="absolute inset-y-0 right-0 flex items-center">
+                    </header>
+                    <div class="flex-1 flex flex-col justify-between">
+                    <form method="POST" action="{{ route('activities.store') }}">
+                      @csrf
+                    <input type="number" name="project_id" value="{{$project->id}}" hidden>
+                      <div class="px-4 divide-y divide-gray-200 sm:px-6">
+                        <div class="space-y-2 pt-6 pb-5">
+                          <div class="space-y-1">
+                            <label for="project_name" class="block text-sm font-medium leading-5 text-gray-900">
+                              Activity name
+                            </label>
+                            <div class="relative rounded-md shadow-sm">
+                              <input  type="text" name="name"
+                              class="form-input block w-full sm:text-sm sm:leading-5 transition ease-in-out duration-150">
+                            </div>
+                          </div>
+                          <div class="space-y-1">
+                            <label for="description" class="block text-sm font-medium leading-5 text-gray-900">
+                              Start Date
+                            </label>
+                            <div class="relative rounded-md shadow-sm">
+                              <input type="date" name="start_date" 
+                              class="form-input block w-full sm:text-sm sm:leading-1">
+                            </div>
+                          </div>
+                          <div class="space-y-2">
+                            <label for="description" class="block text-sm font-medium leading-5 text-gray-900">
+                              End Date
+                            </label>
+                            <div class="relative rounded-md shadow-sm">
+                              <input type="date" name="end_date" 
+                              class="form-input block w-full  sm:text-sm sm:leading-1">
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <label for="email" class="block text-sm font-medium leading-5 text-gray-700">Target</label>
+                            <div class="mt-1 flex rounded-md shadow-sm">
+                              <div class="relative flex-grow focus-within:z-10">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                  <!-- Heroicon name: users -->
+                                  <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                                  </svg>
+                                </div>
+                                <input  name="target" type="number"
+                                    class="form-input block w-full rounded-none rounded-l-md pl-10 transition ease-in-out duration-150 sm:text-sm sm:leading-5" placeholder="John Doe">
+                              </div>
+                            
+                            </div>
+                          </div>
+                          <div>
+                            <label for="price" class="block text-sm leading-5 font-medium text-gray-700">budget</label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <span class="text-gray-500 sm:text-sm sm:leading-5">
+                                  $
+                                </span>
+                              </div>
+                              <input name="budget" type="number" class="form-input block w-full pl-7 pr-12 sm:text-sm sm:leading-5" placeholder="0.00">
+                              <div class="absolute inset-y-0 right-0 flex items-center">
+                              
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-span-6 sm:col-span-3">
+                            @include('partials.status')
+                          </div>
+                        </div>
                       
                       </div>
                     </div>
                   </div>
-                  <div class="col-span-6 sm:col-span-3">
-                    @include('partials.status')
+                  <div class="flex-shrink-0 px-4 py-4 space-x-4 flex justify-end">
+                    <span class="inline-flex rounded-md shadow-sm">
+                      <button @click="isNew = !isNew"  type="button" class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
+                        Cancel
+                      </button>
+                    </span>
+                    <span class="inline-flex rounded-md shadow-sm">
+                      <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                        Save
+                      </button>
+                    </span>
+                  </form>
                   </div>
                 </div>
-               
               </div>
-            </div>
-          </div>
-          <div class="flex-shrink-0 px-4 py-4 space-x-4 flex justify-end">
-            <span class="inline-flex rounded-md shadow-sm">
-              <button @click="isNew = !isNew"  type="button" class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
-                Cancel
-              </button>
-            </span>
-            <span class="inline-flex rounded-md shadow-sm">
-              <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
-                Save
-              </button>
-            </span>
-          </form>
+            </section>
           </div>
         </div>
-      </div>
-    </section>
-  </div>
-</div>
 
 {{-- end of panel --}}
   </div>
