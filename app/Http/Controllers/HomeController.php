@@ -55,11 +55,11 @@ class HomeController extends Controller
        
           $projects = Project::where('state_id', $state_id)
                 ->where('type_id', $type_id)
-                ->whereHas('regions', function($q) use ($r){
+                ->orwhereHas('regions', function($q) use ($r){
                 $q->whereIn('region_id', $r);})
-                  ->WhereHas('priorities',function ($q) use ($p){
+                  ->orWhereHas('priorities',function ($q) use ($p){
                 $q->whereIn('priority_id', $p );})
-                ->WhereHas('sectors',function ($q) use ($s){
+                ->orWhereHas('sectors',function ($q) use ($s){
                     $q->whereIn('sector_id', $s );})
                     ->get();
 
