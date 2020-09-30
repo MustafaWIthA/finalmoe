@@ -227,14 +227,60 @@
 {{-- end of panel --}}
   </div>
   
-  <div class="px-4 py-5 sm:p-6">
-    <div >
-      @forelse ($project->activities as $activity)
-          {{$activity->name}}
-      @empty
-        <h1>there are no added activities</h1>
-      @endforelse
-    
+  <div class="px-4 py-5 sm:p-6 pt-10">
+    <div class="flex flex-col">
+      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+            <table class="min-w-full divide-y divide-gray-200 pt-24">
+              <thead>
+            
+                <tr>
+                  <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                     Title
+                  </th>
+                  <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                    Target
+                  </th>
+                  <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                    Start Date
+                  </th>
+                  <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                    End Date
+                  </th>
+                  <th class="px-6 py-3 bg-gray-50"></th>
+                </tr>
+              </thead>
+              <tbody>
+                @forelse ($project->activities as $activity)
+                <tr class="bg-white">
+                 
+                  <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                    {{$activity->name}}
+                  </td>
+                 
+                  <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
+                    {{$activity->target}}
+                  </td>
+                  <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                    {{$activity->start_date}}
+
+                  </td>
+                  <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                    {{$activity->end_date}}
+
+                  </td>
+                </tr>
+                @empty
+                <!-- More rows... -->
+              </tbody>
+            </table>
+           
+            <h1>there are no added activities</h1>
+            @endforelse
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
