@@ -13,7 +13,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 class District extends Resource
 {
 
-    public static $displayInNavigation = false;
+    // public static $displayInNavigation = false;
 
 
     /**

@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="mt-5 md:mt-0 md:col-span-2">
-        <form method="POST" action="{{ route('projects.store') }}">
+        <form method="POST" action="{{ route('projects.store') }}" enctype="multipart/form-data">
             @csrf
             
             @error('title')
@@ -208,7 +208,18 @@
                 
                 
               </fieldset>
-            
+
+              {{-- <fieldset class="mt-6">
+                <legend class="text-base leading-6 font-medium text-gray-900">Choose Districts/ Areas</legend>
+                <div class="mt-4 flex items-center">
+                        <input type="file" name="documents[]" id="">
+                    </label>
+                </div>
+                </div>
+                
+                
+              </fieldset> --}}
+              
             </div>
             
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">

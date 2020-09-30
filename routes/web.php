@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', );
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('reports/index', 'HomeController@show')->name('reports');
 
 Auth::routes();
 Route::resource('projects', 'ProjectController')->middleware('auth');  //->middleware('auth');

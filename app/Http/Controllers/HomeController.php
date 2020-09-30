@@ -30,4 +30,18 @@ class HomeController extends Controller
             'user'=>$user
         ]);
     }
+
+
+ /**
+     * Display the specified resource.
+     *
+     * @param  \App\Donors  $donors
+     * @return \Illuminate\Http\Response
+     */
+    public function show()
+    {
+        return view('reports.index');
+    }
+
+
 }
