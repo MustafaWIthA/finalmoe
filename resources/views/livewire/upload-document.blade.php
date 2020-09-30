@@ -47,10 +47,11 @@
                     <div class="sm:col-span-2">
                       <div class="rounded-md shadow-sm">
                         <form wire:submit.prevent="save">
+                          <input type="number" wire:model="project_id" value="22" placeholder="project id">
                           <input type="file" wire:model="document">
                           @error('document') <span class="error">{{ $message }}</span> @enderror
-                          <button type="submit">Save Docuemnt</button>
-                      </form>
+                          {{-- <button type="submit">Save Docuemnt</button> --}}
+                     
                       </div>
                     </div>
                   </div>
@@ -67,6 +68,7 @@
                       <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
                         Create
                       </button>
+                    </form>
                     </span>
                   </div>
                 </div>

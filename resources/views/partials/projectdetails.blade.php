@@ -93,7 +93,7 @@
             </span>
           </div>
           <div class="ml-4 flex-shrink-0">
-            <a href="/storage/{{$document->name}}" target="_" class="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out">
+            <a href="/{{$document->name}}" target="_new" class="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out">
               Download
             </a>
           </div>
