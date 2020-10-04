@@ -56,11 +56,24 @@
                 </div>
   
                 <div class="col-span-6 sm:col-span-3">
-                 @include('partials.types')
+                  <label for="Project" class="block text-sm font-medium leading-5 text-gray-700">Project Type</label>
+                  <select name="type_id" class="w-full form-control form-select">
+                      <option value="{{$project->type_id}}" selected="selected" disabled="disabled">{{$project->type->name}}</option> 
+                      @foreach ($Types as $Type)
+                    <option value="{{$Type->id}}">{{$Type->name}}</option>
+                    @endforeach  
+                  </select>
                 </div>
 
                 <div class="col-span-6 sm:col-span-3">
-                  @include('partials.status')
+                  <label for="Project" class="block text-sm font-medium leading-5 text-gray-700">Project State</label>
+                    <select name="state_id" class="w-full form-control form-select">
+                        <option value="{{$project->state_id}}" selected="selected" disabled="disabled">{{$project->state->name}}</option> 
+                      <hr>
+                        @foreach ($Status as $State)
+                      <option value="{{$State->id}}">{{$State->name}}</option>
+                      @endforeach  
+                    </select>
                 </div>
 
                 <div class="col-span-6 sm:col-span-6 lg:col-span-3">

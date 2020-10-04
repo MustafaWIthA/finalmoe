@@ -97,7 +97,8 @@ class ProjectController extends Controller
             'start_date' => $attributes['start_date'],
             'end_date' => $attributes['end_date'],
         ]);
-            $project->save();
+        
+        $project->save();
 
         $regions = $attributes['regions'];
         $donors = $attributes['donors'];
@@ -146,7 +147,25 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $attributes = request()->validate([
+            'title' => 'required|max:255',
+            'target' => 'required|max:255',
+            'description' => 'required',
+            'state_id' => 'required|max:25',
+            'type_id' => 'required|max:25',
+            'budget' => 'required',
+            'start_date' => 'required|max:255',
+            'end_date' => 'required|max:255',
+            'sectors' => 'required',
+            'priorities' => 'required',
+            'regions' => 'required',
+            'donors' => 'required',
+            'agencies' => 'required',
+            'districts' => 'required',
+        ]);
+
+        $project->update($request->all());
+
     }
 
     /**

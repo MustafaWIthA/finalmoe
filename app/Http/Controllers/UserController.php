@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use App\User;
 use Dotenv\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Spatie\Permission\Models\Role;
 
@@ -67,7 +68,7 @@ class UserController extends Controller
         ]);
         $user->save();
 
-    $roles = $attributes['roles'];
+      $roles = $attributes['roles'];
 
        return redirect()->route('users.index')->with('success','the User has been created successfully!');
 
@@ -110,18 +111,28 @@ class UserController extends Controller
             'username' => ['required',Rule::unique('users')->ignore($user->id)],        
             'email' => ['required',Rule::unique('users')->ignore($user->id)],        
             'password' => ['string', 'min:8', 'confirmed'],
-            //'roles'=>'required',
+            'roles'=>'required',
       
         ]);
-        $roles = request()->validate([
-            'roles'=>'required',
-        ]);
+       
 
+            $user->first_name = $request['first_name'];
+            $user-> second_name = $request['second_name']; 
+            $user-> last_name = $request['last_name'];
+           // 'profile' => $request['profile'],
+            $user-> birthdate = $request['birthdate'];
+            $user-> username = $request['username'];
+            $user-> email = $request['email'];
+            $user-> password = Hash::make($request['password']);
+            $user->save();
+            DB::table('model_has_roles')->where('model_id',$user->id)->delete();
 
+            $user->roles()->detach();
+            $user->roles()->attach($request->input('roles') === null ? [] : $request->input('roles'));
        // $user = User::find($user);
-        $user->fill($attributes)->save();
-        $user->Roles()->attach($roles);
-    
+       // $user->fill($attributes)->save();
+            // $user->syncRoles($roles);
+
         return redirect()->back()->with('success','the user has been update successfully!');;
     }
 }
