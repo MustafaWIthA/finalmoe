@@ -27,7 +27,7 @@ Route::get('reports/index', 'HomeController@show')->name('reports');
 // Route::get('/', ReportsGenerate::class);
 
 Auth::routes();
-Route::resource('projects', 'ProjectController')->middleware('auth');  //->middleware('auth');
-Route::resource('activities', 'ActivityController')->middleware('auth');  //->middleware('auth');
+Route::resource('projects', 'ProjectController')->middleware('auth');  
+Route::resource('activities', 'ActivityController')->middleware('auth');  
 
-Route::resource('users', 'UserController')->middleware('auth');  //->middleware('auth');
+Route::resource('users', 'UserController')->middleware('auth');  

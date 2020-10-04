@@ -23,6 +23,7 @@
     @livewireStyles
 </head>
 <body>
+
     <div class="h-screen flex overflow-hidden bg-gray-100">
         <!-- Off-canvas menu for mobile -->
         <div class="md:hidden" x-data="{ isactive: false }">

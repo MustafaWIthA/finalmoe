@@ -52,22 +52,23 @@ class HomeController extends Controller
         $state_id=1;
         $type_id=1;
 
-       
-          $projects = Project::where('state_id', $state_id)
+        
+        $projects = Project::where('state_id', $state_id)
                 ->where('type_id', $type_id)
                 ->whereHas('regions', function($q) use ($r){
-                $q->whereIn('region_id', $r);})
-                  ->WhereHas('priorities',function ($q) use ($p){
-                $q->whereIn('priority_id', $p );})
+                            $q->whereIn('region_id', $r);})
+                ->WhereHas('priorities',function ($q) use ($p){
+                            $q->whereIn('priority_id', $p );})
                 ->WhereHas('sectors',function ($q) use ($s){
-                    $q->whereIn('sector_id', $s );})
-                    ->get();
+                            $q->whereIn('sector_id', $s );})
+                ->get();
 
-        return view('livewire.reports', [
+        return view('reports.index', [
             'projects'=>$projects,
             'status'=>State::all(),
             'types'=>Type::all()
         ]);
+       
     }
 
 
