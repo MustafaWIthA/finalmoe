@@ -94,7 +94,7 @@ Confirm Password
             </div>
             @endforeach
         </div>
-    @error('roles')<span class="mt-2 text-sm text-red-600" id="email-error">{{ $message }}</span>@enderror
+            @error('roles')<span class="mt-2 text-sm text-red-600" id="email-error">{{ $message }}</span>@enderror
 
     </div>
   

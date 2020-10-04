@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use App\User;
 use Dotenv\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -81,7 +82,46 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('Users.edit');
+        //dd($user);
+
+        return view('Users.edit',[
+            'Roles'=>Role::all(),
+            'user'=>$user,
+        ]);
     }
    
+
+      /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Project  $project
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, User $user)
+    {
+        //dd($user);
+     
+        $attributes = request()->validate([
+            'first_name' => 'required|max:255',
+            'second_name' => 'required|max:255',
+            'last_name' => 'required',
+            'birthdate' => 'required|max:25',
+            'username' => ['required',Rule::unique('users')->ignore($user->id)],        
+            'email' => ['required',Rule::unique('users')->ignore($user->id)],        
+            'password' => ['string', 'min:8', 'confirmed'],
+            //'roles'=>'required',
+      
+        ]);
+        $roles = request()->validate([
+            'roles'=>'required',
+        ]);
+
+
+       // $user = User::find($user);
+        $user->fill($attributes)->save();
+        $user->Roles()->attach($roles);
+    
+        return redirect()->back()->with('success','the user has been update successfully!');;
+    }
 }

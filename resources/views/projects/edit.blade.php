@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="mt-5 md:mt-0 md:col-span-2">
-        <form method="POST" action="{{ route('projects.store') }}">
+        <form method="POST" action="{{ route('projects.update', $project->id) }}">
             @csrf
             
             @error('title')
