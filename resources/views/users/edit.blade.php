@@ -24,7 +24,7 @@ Create New User
 @enderror
 <div class="flex items-center content-center">
 <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-<form method="POST" action="{{ route('users.store') }}">
+<form method="POST" action="{{ route('users.update') }}">
 @csrf
 <div>
 <label class="block font-medium text-sm text-gray-700">
@@ -83,6 +83,7 @@ Confirm Password
 </div>
 <div>
 <div class="flex items-center justify-end mt-4">
+    
 <button type="submit" class="inline-flex items-center px-4 py-2 
 bg-blue-800 border border-transparent rounded-md font-semibold text-xs 
 text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 
