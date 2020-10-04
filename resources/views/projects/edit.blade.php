@@ -251,9 +251,18 @@ Edit Project: @include('partials.error')
               <fieldset class="mt-6">
                 <legend class="text-base leading-6 font-medium text-gray-900">Choose Districts/ Areas</legend>
                 <div class="mt-4 flex items-center">
-                  @include('partials.districts')
+
+                <label for="Project" class="block text-sm font-medium leading-5 text-gray-700">Project Districts</label>
+                <select multiple="multiple" id="districts" name="districts[]" class="districts w-full form-control form-select">
+                  @foreach ($project->Districts as $District)
+                  <option value="{{$District->id}}" selected="selected" disabled="disabled">{{$District->name}}</option> 
+                  @endforeach 
+                  @foreach ($Districts as $district)
+                  <option value="{{$district->id}}">{{$district->name}}</option>
+                  @endforeach  
+                </select>
                 </div>
-                
+               
                 
               </fieldset>
 
