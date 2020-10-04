@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Agency;
 use App\District;
 use App\Donor;
 use App\Project;
 use App\Region;
+use App\Sector;
 use App\State;
 use App\Type;
 use Illuminate\Http\Request;
@@ -135,6 +137,10 @@ class ProjectController extends Controller
             'Status'=>State::all(),
             'project'=>$project,
             'Regions'=>Region::all(),
+            'Donors'=>Donor::all(),
+            'Districts'=>District::all(),
+            'Sectors'=>Sector::all(),
+            'Agencies'=>Agency::all(),
         ]);
     }
 
@@ -147,7 +153,10 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        $attributes = request()->validate([
+
+        //dd($project);
+
+        request()->validate([
             'title' => 'required|max:255',
             'target' => 'required|max:255',
             'description' => 'required',
@@ -164,7 +173,37 @@ class ProjectController extends Controller
             'districts' => 'required',
         ]);
 
-        $project->update($request->all());
+     
+        $project->user_id = auth()->id();
+        $project-> title = $request['title'];
+        $project-> description = $request['description'];
+        $project-> target = $request['target'];
+        $project-> type_id = $request['type_id'];
+        $project-> state_id = $request['state_id'];
+        $project-> budget = $request['budget'];
+        $project-> start_date = $request['start_date'];
+        $project-> end_date = $request['end_date'];
+      
+        
+        $project->save();
+
+        $regions = $request['regions'];
+        $donors = $request['donors'];
+        $agencies = $request['agencies'];
+        $districts = $request['districts'];
+        $priorities = $request['priorities'];
+        $sectors = $request['sectors'];
+
+        $project->Regions()->sync($regions);
+        $project->Donors()->sync($donors);
+        $project->Agencies()->sync($agencies);
+        $project->Districts()->sync($districts);
+        $project->Sectors()->sync($sectors);
+        $project->Priorities()->sync($priorities);
+
+      return redirect('projects/'.$project->id)->with('success','the project has been updated successfully!');
+    //   return redirect()->back()->with('success','the user has been update successfully!');;
+
 
     }
 

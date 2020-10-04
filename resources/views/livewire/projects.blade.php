@@ -6,40 +6,40 @@
   type="search" placeholder="Search projects...">
 </div>
 <table class="min-w-full divide-y divide-gray-200">
-  <thead>
+  <thead class=" bg-blue-500 text-white">
   <tr>
-    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+    <th class="px-6 py-3 text-left text-xs leading-4 font-semibold  uppercase tracking-wider">
       <a  wire:click.prevent="sortBy('title')" role="button" href="#">
         Title
         @include('includes.sorticon', ['field' => 'name'])
       </a>
     </th>
-    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+    <th class="px-6 py-3 text-left text-xs leading-4 font-semibold  uppercase tracking-wider">
         <a  role="button" href="#">
           Type
         {{-- @include('includes.sorticon', ['field' => 'name']) --}}
       </a> 
     </th>
-    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+    <th class="px-6 py-3 text-left text-xs leading-4 font-semibold  uppercase tracking-wider">
         <a  role="button" href="#">
           State
         {{-- @include('includes.sorticon', ['field' => 'name']) --}}
       </a> 
     </th>
-    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+    <th class="px-6 py-3 text-left text-xs leading-4 font-semibold  uppercase tracking-wider">
       <a  wire:click.prevent="sortBy('start_date')" role="button" href="#">
         Start Date
         @include('includes.sorticon', ['field' => 'name'])
       </a>  
      
     </th>
-    <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+    <th class="px-6 py-3 text-left text-xs leading-4 font-semibold  uppercase tracking-wider">
       <a  wire:click.prevent="sortBy('start_date')" role="button" href="#">
         End Date
         @include('includes.sorticon', ['field' => 'name'])
       </a> 
     </th>
-    <th class="px-6 py-3 bg-gray-50"></th>
+    <th class="px-6 py-3 "></th>
   </tr>
 </thead>
 <tbody class="">
