@@ -135,7 +135,6 @@
               </fieldset>
               <fieldset class="mt-6">
                 <legend class="text-base leading-6 font-medium text-gray-900">Choose Education Sector Priorities</legend>
-                <p class="text-sm leading-5 text-gray-500">These are delivered via SMS to your mobile phone.</p>
                   @livewire('priorities') 
               </fieldset>
               {{-- <fieldset class="mt-6">
