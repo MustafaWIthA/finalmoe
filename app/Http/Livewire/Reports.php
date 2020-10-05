@@ -34,7 +34,7 @@ class Reports extends Component
 
             
             $selectedprojects = Project::where('state_id', $this->state_id)
-                                ->where('type_id', $this->type_id)
+                                ->orwhere('type_id', $this->type_id)
             // ->whereHas('regions', function($q) use ($r){
             //             $q->whereIn('region_id', $r);})
             // ->WhereHas('priorities',function ($q) use ($p){
