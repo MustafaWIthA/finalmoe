@@ -10,13 +10,16 @@
       @include('partials.error')
     </h3>
     <div>
+      @hasrole('SuperAdmin')
       <span class="shadow-sm rounded-md">
-          <a href="users/create">
-        <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
-          Create new User
-        </button>
-    </a>
-      </span>
+        <a href="users/create">
+      <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
+        Create new User
+      </button>
+      </a>
+    </span>
+      @endhasrole
+      
     </div>
   </div>
   <br>

@@ -32,4 +32,3 @@ Route::resource('activities', 'ActivityController')->middleware('auth');
 
 Route::resource('users', 'UserController')->middleware('auth');  
 Route::post('/upload-file', 'DocumentsController@store')->name('fileUpload');
-Route::get('/linkstorage', function () { $targetFolder = base_path().'/storage/app/public'; $linkFolder = $_SERVER['DOCUMENT_ROOT'].'/storage'; symlink($targetFolder, $linkFolder); });

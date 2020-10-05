@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('maintitle')
-    
+@section('maintitle')s
+
     <div class="lg:flex lg:items-center lg:justify-between bg-green-700 py-13 px-13 rounded-md rounded-b-none">
         <div class="flex-1 min-w-0">
           <h2 class="text-2xl font-bold leading-7 text-white sm:text-3xl sm:leading-9 sm:truncate">
