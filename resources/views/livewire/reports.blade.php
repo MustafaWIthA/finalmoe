@@ -59,6 +59,7 @@
     </div>
  
     {{$state_id}}
+    {{$region_id}}
  
      
      @forelse ($selectedprojects as $project)
