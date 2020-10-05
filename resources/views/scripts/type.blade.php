@@ -28,7 +28,7 @@
           },
           options: {
               scales: {
-                  yAxes: [{
+                  xAxes: [{
                       ticks: {
                           beginAtZero: false
                       },
@@ -36,7 +36,8 @@
                           display:false
                       } 
                       
-                  }]
+                  }],
+                  
               }
           }
       });

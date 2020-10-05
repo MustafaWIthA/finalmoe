@@ -42,13 +42,13 @@
               <svg class="flex-shrink-0 mr-1.5 h-10 w-7 text-gray-500" fill="white" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
               </svg>
-              Start Date: {{$project->start_date}}
+              Start Date: {{$project->start_date->format('D,M, Y')}}
             </div>
             <div class="mt-2 flex items-center text-sm leading-5 text-gray-300">
                 <svg class="flex-shrink-0 mr-1.5 h-10 w-7 text-gray-500" fill="white" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
                 </svg>
-                End Date: {{$project->end_date}}
+                End Date: {{$project->end_date->format('D,M, Y')}}
               </div>
           </div>
         </div>
@@ -98,6 +98,7 @@
       <dt class="text-sm leading-5 font-medium text-gray-900">
         Project Districts
       </dt>
+      
         <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
           @forelse ($project->districts as $district)
               {{$district->name}},
@@ -108,9 +109,30 @@
       <dt class="text-sm leading-5 font-medium text-gray-900">
         Project Regions
       </dt>
-        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+      
+        <dt class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
           @forelse ($project->regions as $region)
               {{$region->name}},
+          @empty
+            <h1>nothin is added yet</h1>
+          @endforelse
+        </dt>
+        <dt class="text-sm leading-5 font-medium text-gray-900">
+          Project Priority
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+          @forelse ($project->Priorities as $Priority)
+              {{$Priority->name}},
+          @empty
+            <h1>nothin is added yet</h1>
+          @endforelse
+        </dd>
+        <dt class="text-sm leading-5 font-medium text-gray-900">
+          Project Sector
+        </dt>
+        <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+          @forelse ($project->Sectors as $Sector)
+              {{$Sector->name}},
           @empty
             <h1>nothin is added yet</h1>
           @endforelse

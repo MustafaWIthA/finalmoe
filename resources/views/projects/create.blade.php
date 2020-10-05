@@ -140,7 +140,7 @@
               </fieldset>
               {{-- <fieldset class="mt-6">
                 <legend class="text-base leading-6 font-medium text-gray-900">Choose Cross Cutting Thematic Areas</legend>
-                <p class="text-sm leading-5 text-gray-500">These are delivered via SMS to your mobile phone.</p>
+                <p class="text-sm leading-5 text-gray-500">hhs.</p>
                 <div class="mt-4 flex items-center">
                   <input id="offers" type="checkbox" class="form-checkbox h-5 w-5 text-indigo-600 transition duration-150 ease-in-out">
                   <label for="push_nothing" class="ml-3">

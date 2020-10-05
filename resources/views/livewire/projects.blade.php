@@ -15,14 +15,21 @@
       </a>
     </th>
     <th class="px-6 py-3 text-left text-xs leading-4 font-semibold  uppercase tracking-wider">
+      <a  role="button" href="#">
+        Budget
+      @include('includes.sorticon', ['field' => 'name'])
+    </a> 
+  </th>
+    <th class="px-6 py-3 text-left text-xs leading-4 font-semibold  uppercase tracking-wider">
         <a  role="button" href="#">
           Type
         {{-- @include('includes.sorticon', ['field' => 'name']) --}}
       </a> 
     </th>
+    
     <th class="px-6 py-3 text-left text-xs leading-4 font-semibold  uppercase tracking-wider">
         <a  role="button" href="#">
-          State
+          Status
         {{-- @include('includes.sorticon', ['field' => 'name']) --}}
       </a> 
     </th>
@@ -47,6 +54,10 @@
               <tr class="bg-white">
                 <td class="px-6 flex-shrink py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
                 <a href="{{route('projects.show', $project->id)}}">{{Str::limit($project->title, 40)}} </a>
+                </td>
+                <td class="px-6 flex-shrink  py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                  <a href="#">$ {{$project->budget}} </a>
+
                 </td>
                 <td class="px-6 flex-shrink  py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                   <a href="#">{{$project->type->name}} </a>
