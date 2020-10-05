@@ -3,7 +3,7 @@
     <label for="location" class="block text-sm leading-5 font-medium text-gray-700">Status</label>
     <select wire:model="state_id" class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
     
-      <option>select this</option>
+      <option>Select Status</option>
       @foreach (App\State::all() as $state)
     <option value="{{$state->id}}">{{$state->name}}</option>
       @endforeach
@@ -13,7 +13,7 @@
     <div>
       <label for="location" class="block text-sm leading-5 font-medium text-gray-700">Type</label>
       <select wire:model="type_id" class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-        <option>select this</option>
+        <option>select Type</option>
         @foreach (App\Type::all() as $type)
       <option value="{{$type->id}}">{{$type->name}}</option>
         @endforeach
@@ -22,7 +22,7 @@
     <div>
       <label for="location" class="block text-sm leading-5 font-medium text-gray-700">Region</label>
       <select wire:model="type_id" class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-        <option>select this</option>
+        <option>select Region</option>
         @foreach (App\Region::all() as $region)
       <option value="{{$region->id}}">{{$region->name}}</option>
         @endforeach
@@ -31,7 +31,7 @@
     <div>
       <label for="location" class="block text-sm leading-5 font-medium text-gray-700">Proirity</label>
       <select wire:model="type_id" class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-        <option>select this</option>
+        <option>select Proirity</option>
         @foreach (App\Priority::all() as $priority)
       <option value="{{$priority->id}}">{{$priority->name}}</option>
         @endforeach
@@ -40,7 +40,7 @@
   
 
     <button wire:click="change">
-      Create
+      Search
     </button>
     @forelse ($projects as $project)
       <li> {{$project->title}} </li>
