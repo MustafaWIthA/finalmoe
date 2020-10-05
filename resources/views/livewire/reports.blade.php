@@ -45,11 +45,9 @@
     @forelse ($projects as $project)
       <li> {{$project->title}} </li>
     @empty
-      <p>Nothing back</p>
+      <p class="hidden">Nothing back</p>
     @endforelse
-{{$foo}}
-{{$state_id}}
-{{$type_id}}
+
 </div>
 
 
