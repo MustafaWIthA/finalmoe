@@ -15,8 +15,8 @@ use Livewire\Component;
 class Reports extends Component
 
 {
-    public $type_id=1;
-    public $state_id=1;
+    public $type_id;
+    public $state_id;
     public $status;
     public $types;
     public $projects;
@@ -27,7 +27,7 @@ class Reports extends Component
 
     public function change(){
 
-       // $state_id= $this->state_id;
+       $state_id= $this->state_id;
          $type_id= $this->type_id;
     }
 

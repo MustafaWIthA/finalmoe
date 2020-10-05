@@ -8,7 +8,10 @@
     
   </div>
   <br>
-  @livewire('reports')   
+  @livewire('reports') 
+  <div>
+    @livewire('projects')
+  </div>  
 @endsection
 
 
