@@ -225,7 +225,7 @@
                       <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" 
                       role="menuitem">{{ Auth::user()->email }}</a>
       
-                      <a href="user/{{ Auth::user()->id }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Settings</a>
+                      <a href="users/{{ Auth::user()->id }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Settings</a>
       
                       <form method="POST" action="{{ route('logout') }}">
                         @csrf
