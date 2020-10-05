@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('maintitle')s
+@section('maintitle')
 
     <div class="lg:flex lg:items-center lg:justify-between bg-green-700 py-13 px-13 rounded-md rounded-b-none">
         <div class="flex-1 min-w-0">
@@ -14,16 +14,18 @@
               </svg>
               {{$project->Type->name}}
             </div>
-            {{-- <div class="mt-2 flex items-center text-sm leading-5 text-gray-300 sm:mr-6">
-              <svg class="flex-shrink-0 mr-1.5 h-10 w-7 text-gray-500" fill="bg-white" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-              </svg>
-              @foreach ($project->regions as $region)
-                      {{$region->name}}
+            <div class="mt-2 flex items-center text-sm leading-5 text-gray-300 sm:mr-6">
+              <svg class="w-6 h-6" fill="white" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              @foreach ($project->agencies as $agency)
+                      {{$agency->name}}
               @endforeach
-              
-
-            </div> --}}
+            </div>
+            <div class="mt-2 flex items-center text-sm leading-5 text-gray-300 sm:mr-6">
+              <svg class="w-6 h-6" fill="white" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+              @foreach ($project->donors as $donor)
+                      {{$donor->name}}
+              @endforeach
+            </div>
             <div class="mt-2 flex items-center text-sm leading-5 text-gray-300 sm:mr-6">
               <svg class="flex-shrink-0 mr-1.5 h-10 w-7 text-gray-500" fill="white" viewBox="0 0 20 20">
                 <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
