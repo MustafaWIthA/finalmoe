@@ -75,7 +75,7 @@
           Project Summary
         </button>
         <button @click="currentTab = 'second'" class="w-1/4 py-4 px-1 text-center border-b-2 border-transparent font-medium text-sm leading-5 text-white hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-indigo-800 focus:border-indigo-700">
-          Attachments
+          Documents
         </button>
         <button @click="currentTab = 'fourth'" class="w-1/4 py-4 px-1 text-center border-b-2 border-transparent font-medium text-sm leading-5 text-white hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-indigo-800 focus:border-indigo-700">
           Activities
@@ -410,7 +410,7 @@
             
                 <tr>
                   <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                     Title
+                     Activity Describtion
                   </th>
                   <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                     Budget
