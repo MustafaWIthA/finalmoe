@@ -31,3 +31,4 @@ Route::resource('projects', 'ProjectController')->middleware('auth');
 Route::resource('activities', 'ActivityController')->middleware('auth');  
 
 Route::resource('users', 'UserController')->middleware('auth');  
+Route::post('/upload-file', 'DocumentsController@store')->name('fileUpload');
