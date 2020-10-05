@@ -37,12 +37,12 @@ class Reports extends Component
         
 
             
-            $selectedprojects = Project::where('state_id', $this->state_id)
+            $selectedprojects = Project::with('Regions','Districts')->where('state_id', $this->state_id)
                                 ->where('type_id', $this->type_id)
             ->whereHas('regions', function($q) use ($r){
                         $q->whereIn('region_id', $r);})
-            // ->WhereHas('priorities',function ($q) use ($p){
-            //             $q->whereIn('priority_id', $p );})
+            ->WhereHas('priorities',function ($q) use ($p){
+                        $q->whereIn('priority_id', $p );})
             // ->WhereHas('sectors',function ($q) use ($s){
             //             $q->whereIn('sector_id', $s );})
             ->WhereHas('districts',function ($q) use ($d){

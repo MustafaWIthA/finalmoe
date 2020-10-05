@@ -85,7 +85,7 @@ class UserController extends Controller
     {
         //dd($user);
 
-        return view('Users.edit',[
+        return view('users.edit',[
             'Roles'=>Role::all(),
             'user'=>$user,
         ]);
