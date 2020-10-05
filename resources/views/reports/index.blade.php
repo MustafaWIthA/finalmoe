@@ -9,9 +9,6 @@
   </div>
   <br>
   @livewire('reports') 
-  <div>
-    @livewire('projects')
-  </div>  
 @endsection
 
 

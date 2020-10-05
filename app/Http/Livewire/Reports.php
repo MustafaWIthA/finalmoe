@@ -12,18 +12,36 @@ use App\Sector;
 use App\State;
 use App\Type;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Reports extends Component
 
 {
+
+    use WithPagination;
     public $state_id;
     public $type_id;
     public $proirity_id;
     public $region_id;
-    public $sector_id=1;
+    public $year;
+    public $sector_id;
     public $district_id;
     
+    public $perPage = 10;
+    public $sortField='title';
+    public $sortAsc = false;
+    public $search = '';
 
+    public function sortBy($field)
+    {
+        if ($this->sortField === $field) {
+            $this->sortAsc = ! $this->sortAsc;
+        } else {
+            $this->sortAsc = true;
+        }
+
+        $this->sortField = $field;
+    }
  
 
     public function render()
@@ -33,7 +51,7 @@ class Reports extends Component
         // $r= Region::findOrfail($this->region_id);
         //$d=District::findOrfail($this->district_id);
         // $p=Priority::findOrfail($this->proirity_id);
-        $s=Sector::findOrfail($this->sector_id);
+        //$s=Sector::findOrfail($this->sector_id);
         
 
           $query = Project::where('state_id', $this->state_id);
@@ -41,6 +59,9 @@ class Reports extends Component
         
             if($this->type_id) {
                     $query->where('type_id', $this->type_id);
+            }
+            if($this->year) {
+                    $query->whereYear('start_date', $this->year);
             }
 
             if($this->district_id) {
@@ -58,7 +79,7 @@ class Reports extends Component
             }
            
 
-            $selectedprojects = $query->get();
+            $selectedprojects = $query->paginate($this->perPage);;
 
             
             // $selectedprojects = Project::with('Regions','Districts')->where('state_id', $this->state_id)
