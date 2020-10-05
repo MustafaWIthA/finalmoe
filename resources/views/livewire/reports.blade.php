@@ -22,7 +22,7 @@
      
      <div class="sm:col-span-3">
        <label for="location" class="block text-sm leading-5 font-medium text-gray-700">Proirity</label>
-       <select wire:model="proirity_id" class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
+       <select wire:model="priority_id" class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
          <option>select Proirity</option>
          @foreach (App\Priority::all() as $priority)
        <option value="{{$priority->id}}">{{$priority->name}}</option>
@@ -30,11 +30,11 @@
        </select>
      </div>
      <div class="sm:col-span-3">
-       <label for="location" class="block text-sm leading-5 font-medium text-gray-700">Proirity</label>
-       <select wire:model="proirity_id" class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
-         <option>select Proirity</option>
-         @foreach (App\Priority::all() as $priority)
-       <option value="{{$priority->id}}">{{$priority->name}}</option>
+       <label for="location" class="block text-sm leading-5 font-medium text-gray-700">Sectors</label>
+       <select wire:model="sector_id" class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
+         <option>select Sector</option>
+         @foreach (App\Sector::all() as $sector)
+       <option value="{{$sector->id}}">{{$sector->name}}</option>
          @endforeach
        </select>
      </div>
@@ -72,7 +72,7 @@
          @endforeach
        </select>
      </div>
-   
+   {{$sector_id}}
      <div class="sm:col-span-6">
        {{-- <button type="submit" class=" w-full justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" 
          wire:click="change">
@@ -174,7 +174,7 @@
                 {{ $selectedprojects->links() }}
       
               </div>
-       <p class="">Nothing back</p>
+       <p class="">nothing matches your over thinking criteria</p>
      @endforelse
  
  </div>

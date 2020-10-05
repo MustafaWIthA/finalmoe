@@ -21,7 +21,7 @@ class Reports extends Component
     use WithPagination;
     public $state_id;
     public $type_id;
-    public $proirity_id;
+    public $priority_id;
     public $region_id;
     public $year;
     public $sector_id;
@@ -74,6 +74,20 @@ class Reports extends Component
                     $r= Region::findOrfail($this->region_id);
                     $query->WhereHas('regions',function ($q) use ($r){
                             $q->whereIn('region_id', $r);
+                    
+                });
+            }
+            if($this->sector_id) {
+                    $s=Sector::findOrfail($this->sector_id);
+                    $query->WhereHas('sectors',function ($q) use ($s){
+                            $q->whereIn('sector_id', $s);
+                    
+                });
+            }
+            if($this->priority_id) {
+                    $p=Priority::findOrfail($this->priority_id);
+                    $query->WhereHas('priorities',function ($q) use ($p){
+                            $q->whereIn('priority_id', $p);
                     
                 });
             }
