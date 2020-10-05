@@ -18,10 +18,10 @@ class Reports extends Component
 {
     public $state_id;
     public $type_id;
-    public $proirity_id=1;
-    public $region_id=1;
+    public $proirity_id;
+    public $region_id;
     public $sector_id=1;
-    public $district_id=1;
+    public $district_id;
     
 
  
@@ -30,24 +30,48 @@ class Reports extends Component
     {
         
 
-        $r= Region::findOrfail($this->region_id);
-        $d=District::findOrfail($this->district_id);
-        $p=Priority::findOrfail($this->proirity_id);
+        // $r= Region::findOrfail($this->region_id);
+        //$d=District::findOrfail($this->district_id);
+        // $p=Priority::findOrfail($this->proirity_id);
         $s=Sector::findOrfail($this->sector_id);
         
 
+          $query = Project::where('state_id', $this->state_id);
+                    
+        
+            if($this->type_id) {
+                    $query->where('type_id', $this->type_id);
+            }
+
+            if($this->district_id) {
+                    $d=District::findOrfail($this->district_id);
+                    $query->WhereHas('districts',function ($q) use ($d){
+                            $q->whereIn('district_id', $d );
+                });
+            }
+            if($this->region_id) {
+                    $r= Region::findOrfail($this->region_id);
+                    $query->WhereHas('regions',function ($q) use ($r){
+                            $q->whereIn('region_id', $r);
+                    
+                });
+            }
+           
+
+            $selectedprojects = $query->get();
+
             
-            $selectedprojects = Project::with('Regions','Districts')->where('state_id', $this->state_id)
-                                ->where('type_id', $this->type_id)
-            ->whereHas('regions', function($q) use ($r){
-                        $q->whereIn('region_id', $r);})
-            ->WhereHas('priorities',function ($q) use ($p){
-                        $q->whereIn('priority_id', $p );})
-            // ->WhereHas('sectors',function ($q) use ($s){
-            //             $q->whereIn('sector_id', $s );})
-            ->WhereHas('districts',function ($q) use ($d){
-                        $q->whereIn('district_id', $d );})
-            ->get();
+            // $selectedprojects = Project::with('Regions','Districts')->where('state_id', $this->state_id)
+            //                     ->where('type_id', $this->type_id)
+            // ->whereHas('regions', function($q) use ($r){
+            //             $q->whereIn('region_id', $r);})
+            // ->WhereHas('priorities',function ($q) use ($p){
+            //             $q->whereIn('priority_id', $p );})
+            // // ->WhereHas('sectors',function ($q) use ($s){
+            // //             $q->whereIn('sector_id', $s );})
+            // ->WhereHas('districts',function ($q) use ($d){
+            //             $q->whereIn('district_id', $d );})
+            // ->get();
             
       
 
