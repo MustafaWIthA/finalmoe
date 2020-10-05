@@ -17,6 +17,7 @@ Projects Data
             Create new Project
           </button>
         </a>
+      @endhasrole
     </span>     
       
     </div>
