@@ -64,7 +64,9 @@
                 </td>
                 <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
                   <a href="{{route('projects.show', $project->id)}}" class="text-indigo-600 hover:text-indigo-900">View</a>
+                  @hasrole('SuperAdmin|Editor')
                   <a href="{{route('projects.edit', $project->id)}}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                  @endhasrole
                 </td>
               </tr>
               @endforeach
