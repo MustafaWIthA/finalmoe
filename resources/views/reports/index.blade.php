@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('maintitle')
-    Search things
+    Search Project
 @endsection
 
 @section('content')

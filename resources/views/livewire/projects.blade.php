@@ -15,7 +15,7 @@
       </a>
     </th>
     <th class="px-6 py-3 text-left text-xs leading-4 font-semibold  uppercase tracking-wider">
-      <a  role="button" href="#">
+      <a  role="button" wire:click.prevent="sortBy('budget')" role="button" href="#">
         Budget
       @include('includes.sorticon', ['field' => 'name'])
     </a> 

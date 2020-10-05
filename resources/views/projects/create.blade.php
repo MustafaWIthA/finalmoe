@@ -86,7 +86,7 @@
                   <div class="mt-1 relative rounded-md shadow-sm">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                       <span class="text-gray-500 sm:text-sm sm:leading-5">
-                        $
+                        
                       </span>
                     </div>
                   <input type="number" name="target" id="target" class="pl-7 mt-1 form-input block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5">
@@ -174,7 +174,7 @@
         <div class="px-4 sm:px-0">
           <h3 class="text-lg font-medium leading-6 text-gray-900">Region and Districts Section</h3>
           <p class="mt-1 text-sm leading-5 text-gray-600">
-            Choose the right Region and District by clicking one or more sectors
+            Choose the right Region and District by clicking one or more fields
           </p>
         </div>
       </div>
