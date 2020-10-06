@@ -8,15 +8,20 @@ use Livewire\Component;
 
 class Numbers extends Component
 {
+
+    public $year = 2020;
+
     public function render()
     {
+
+        
         $thisyear =Carbon::now()->year;
        
         $totalprojects = Project::count();
         return view('livewire.numbers',[
             'thisyear' =>$thisyear,
-            'totalprojects'=>Project::whereYear('start_date', $thisyear)->count(),
-            'totalbudget'=>Project::whereYear('start_date', $thisyear)->sum('budget'),
+            'totalprojects'=>Project::whereYear('start_date', $this->year)->count(),
+            'totalbudget'=>Project::whereYear('start_date', $this->year)->sum('budget'),
         ]);
     }
 }

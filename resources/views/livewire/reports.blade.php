@@ -174,7 +174,7 @@
                 {{ $selectedprojects->links() }}
       
               </div>
-       <p class="">nothing matches your over thinking criteria</p>
+       <p class=" w-full content-center">nothing matches your over thinking criteria</p>
      @endforelse
  
  </div>
