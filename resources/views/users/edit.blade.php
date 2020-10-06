@@ -95,30 +95,29 @@ Edit User Info
                    
                     
                 </div>
+                @hasrole('SuperAdmin')  
                 <div class="w-full  mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg ml-3.5">
                     <div> Roles:@foreach ($user->Roles as $Role) 
                         <span class=" font-extrabold">{{$Role->name}}</span>
                          @endforeach
                             @foreach ($Roles as $Role)
                             <div class="mt-4">
-                            <div class="flex items-center">
-                                <input  type="checkbox"  name="roles[]" value="{{$Role->id}}"
-                                class="form-checkbox h-5 w-5 text-indigo-600 transition duration-150 ease-in-out">
-                                <span class="block text-sm leading-5 font-medium text-gray-700">{{$Role->name}}</span>
-                                </label>
-                            </div> 
+                                <div class="flex items-center">
+                                    <input  type="checkbox"  name="roles[]" value="{{$Role->id}}"
+                                    class="form-checkbox h-5 w-5 text-indigo-600 transition duration-150 ease-in-out">
+                                    <span class="block text-sm leading-5 font-medium text-gray-700">{{$Role->name}}</span>
+                                    </label>
+                                </div> 
                             </div>
                             @endforeach
                         </div>
-                            @error('roles')<span class="mt-2 text-sm text-red-600" id="email-error">{{ $message }}</span>@enderror
-                
-                    
-                 
+                        @error('roles')<span class="mt-2 text-sm text-red-600" id="email-error">{{ $message }}</span>@enderror
                 </div>
+                @endhasrole
                 
                 <div>
-                 <div class="mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg ml-3.5">
-                        <button type="submit" class="sm:w-full text-center inline-flex items-center px-4 py-2 
+                 <div class="mt-6 px-6 py-6 bg-white shadow-md overflow-hidden sm:rounded-lg ml-3.5 content-center">
+                        <button type="submit" class="sm:w-full text-center inline-flex items-center px-4 py-4 
                     bg-blue-800 border border-transparent rounded-md font-semibold text-xs 
                     text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 
                     focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150 ml-4">

@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Livewire\ReportsGenerate;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
+
+Auth::routes();
 
 // Route::get('/', );
 Route::get('/', 'HomeController@index')->name('home');
@@ -26,9 +24,12 @@ Route::get('reports/index', 'HomeController@show')->name('reports');
 
 // Route::get('/', ReportsGenerate::class);
 
-Auth::routes();
-Route::resource('projects', 'ProjectController')->middleware('auth');  
+Route::resource('projects', 'ProjectController')->middleware('auth'); 
+Route::post('/upload-file', 'DocumentsController@store')->name('fileUpload');
 Route::resource('activities', 'ActivityController')->middleware('auth');  
 
-Route::resource('users', 'UserController')->middleware('auth');  
-Route::post('/upload-file', 'DocumentsController@store')->name('fileUpload');
+Route::resource('users', 'UserController')->middleware('auth'); 
+Route::get('user/{user}/profile', 'UserController@profile')->name('profile');
+
+
+

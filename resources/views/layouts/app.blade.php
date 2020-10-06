@@ -225,11 +225,11 @@
                       <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" 
                       role="menuitem">{{ Auth::user()->email }}</a>
       
-                      <a href="users/{{ Auth::user()->id }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Settings</a>
+                      <a href="{{route('profile', Auth::user()->id)}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem">Profile</a>
       
                       <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem"
+                          <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150" role="menuitem"
                           href="{{ route('logout') }}"  onclick="event.preventDefault(); this.closest('form').submit();"
                           >
                             {{ __(' Sign out') }}
