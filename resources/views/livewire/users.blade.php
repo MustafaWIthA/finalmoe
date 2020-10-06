@@ -45,8 +45,11 @@
                         {{$user->updated_at}}
                       </td>
                       <td class="px-6 py-4 whitespace-no-wrap text-right text-sm leading-5 font-medium">
-                      <a href="{{route('users.edit', $user->id )}}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                        <a href="{{route('users.show', $user->id )}}" class="text-indigo-600 hover:text-indigo-900">View</a>
+                        @can('edit users') 
+                          <a href="{{route('users.edit', $user->id )}}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                        @endcan 
+                         <a href="{{route('users.show', $user->id )}}" class="text-indigo-600 hover:text-indigo-900">View</a>
+                        
                       </td>
                     </tr>
                     @endforeach

@@ -95,7 +95,7 @@ Edit User Info
                    
                     
                 </div>
-                @hasrole('SuperAdmin')  
+                @can('update users')  
                 <div class="w-full  mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg ml-3.5">
                     <div> Roles:@foreach ($user->Roles as $Role) 
                         <span class=" font-extrabold">{{$Role->name}}</span>
@@ -113,7 +113,7 @@ Edit User Info
                         </div>
                         @error('roles')<span class="mt-2 text-sm text-red-600" id="email-error">{{ $message }}</span>@enderror
                 </div>
-                @endhasrole
+                @endcan
                 
                 <div>
                  <div class="mt-6 px-6 py-6 bg-white shadow-md overflow-hidden sm:rounded-lg ml-3.5 content-center">
