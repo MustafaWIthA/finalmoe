@@ -68,7 +68,10 @@ class UserController extends Controller
         ]);
         $user->save();
 
-      $roles = $attributes['roles'];
+        $roles = $request['roles'];
+        $user->roles()->attach($roles);
+
+        //$user->roles()->attach($attributes('roles'));
 
        return redirect()->route('users.index')->with('success','the User has been created successfully!');
 

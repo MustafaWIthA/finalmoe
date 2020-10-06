@@ -109,7 +109,6 @@ class Reports extends Component
             // ->get();
             
       
-
         return view('livewire.reports',[
             'selectedprojects'=>$selectedprojects,
         ]);

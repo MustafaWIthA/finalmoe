@@ -1,10 +1,10 @@
 <div>
     <div>
-        <h3 class="text-lg leading-6 font-medium text-gray-900">
+        {{-- <h3 class="text-lg leading-6 font-medium text-gray-900">
           This Year: {{$thisyear}}
-        </h3>
+        </h3> --}}
         <div class="sm:col-span-2">
-          <label for="location" class="block text-sm leading-5 font-medium text-gray-700">By Year</label>
+          {{-- <label for="location" class="block text-sm leading-5 font-medium text-gray-700">By Year</label> --}}
           <select wire:model="year" class="mt-1 form-select block w-full pl-3 pr-10 py-2 text-base leading-6 border-gray-300 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5">
             <option>Choose Year</option>
             <option>2016</option>
@@ -23,7 +23,7 @@
             <div class="px-4 py-5 sm:p-6">
               <dl>
                 <dt class="text-sm leading-5 font-medium text-gray-500 truncate">
-                  Total Projects
+                  Total Projects of {{$year}}
                 </dt>
                 <dd class="mt-1 text-3xl leading-9 font-semibold text-gray-900">
                     {{$totalprojects}}

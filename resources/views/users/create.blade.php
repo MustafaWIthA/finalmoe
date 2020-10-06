@@ -86,7 +86,7 @@ Confirm Password
             @foreach ($Roles as $Role)
             <div class="mt-4">
             <div class="flex items-center">
-                <input  type="checkbox" value="{{old('roles')}}" name="roles[]" value="{{$Role->id}}"
+                <input  type="checkbox" name="roles[]" value="{{$Role->id}}"
                 class="form-checkbox h-5 w-5 text-indigo-600 transition duration-150 ease-in-out">
                 <span class="block text-sm leading-5 font-medium text-gray-700">{{$Role->name}}</span>
                 </label>

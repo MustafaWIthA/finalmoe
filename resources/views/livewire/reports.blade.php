@@ -93,6 +93,11 @@
         placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 sm:text-sm" " 
         type="search" placeholder="Search projects...">
       </div> --}}
+      @if ($perPage < 0)
+          x
+      @else
+          none
+      @endif
       <table class="min-w-full divide-y divide-gray-200">
         <thead class=" bg-indigo-600 text-white">
         <tr>
