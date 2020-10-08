@@ -113,12 +113,19 @@
             @include('includes.sorticon', ['field' => 'name'])
           </a> 
         </th>
+        <th class="px-6 py-3 text-left text-xs leading-4 font-semibold  uppercase tracking-wider">
+          <a  role="button" href="#">
+            Target
+          {{-- @include('includes.sorticon', ['field' => 'name']) --}}
+        </a> 
+      </th>
           <th class="px-6 py-3 text-left text-xs leading-4 font-semibold  uppercase tracking-wider">
               <a  role="button" href="#">
                 Type
               {{-- @include('includes.sorticon', ['field' => 'name']) --}}
             </a> 
           </th>
+         
           
           <th class="px-6 py-3 text-left text-xs leading-4 font-semibold  uppercase tracking-wider">
               <a  role="button" href="#">
@@ -153,9 +160,14 @@
       
                       </td>
                       <td class="px-6 flex-shrink  py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
+                        <a href="#">{{$project->target}} </a>
+      
+                      </td>
+                      <td class="px-6 flex-shrink  py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                         <a href="#">{{$project->type->name}} </a>
       
                       </td>
+                     
                       <td class="px-6 flex-shrink  py-4 whitespace-no-wrap text-sm leading-5 text-gray-500">
                         <a href="#">{{$project->state->name}} </a>
       

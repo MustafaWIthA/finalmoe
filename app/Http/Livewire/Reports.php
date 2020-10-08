@@ -46,14 +46,7 @@ class Reports extends Component
 
     public function render()
     {
-        
-
-        // $r= Region::findOrfail($this->region_id);
-        //$d=District::findOrfail($this->district_id);
-        // $p=Priority::findOrfail($this->proirity_id);
-        //$s=Sector::findOrfail($this->sector_id);
-        
-
+    
           $query = Project::where('state_id', $this->state_id);
                     
         

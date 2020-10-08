@@ -40,7 +40,8 @@ class DocumentsController extends Controller
 
        // dd($request);
 
-        $path = Storage::putFile('documents', $request->file('document'));
+        $path = $request->file('document')->store('documents');
+       // $path = $request->file('document')->store('/', 'documents');
 
         // $request->validate([
         //     'document' => 'required', //|mimes:csv,txt,xlx,xls,pdf|max:4048',

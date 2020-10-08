@@ -88,7 +88,7 @@ Confirm Password
             <div class="flex items-center">
                 <input  type="checkbox" name="roles[]" value="{{$Role->id}}"
                 class="form-checkbox h-5 w-5 text-indigo-600 transition duration-150 ease-in-out">
-                <span class="block text-sm leading-5 font-medium text-gray-700">{{$Role->name}}</span>
+                <span class="block text-sm leading-5 font-medium text-gray-700 px-2">{{$Role->name}}</span>
                 </label>
             </div> 
             </div>
