@@ -1,8 +1,10 @@
 @extends('layouts.app')
 @section('maintitle')
 
-    <div class="lg:flex lg:items-center lg:justify-between bg-green-700 py-13 px-13 rounded-md rounded-b-none">
+    <div class="lg:flex lg:items-center lg:justify-between bg-blue-700 py-13 px-13 rounded-md rounded-b-none">
         <div class="flex-1 min-w-0">
+          <span class="text-gray-200">Project Title</span> 
+          
           <h2 class="text-2xl font-bold leading-7 text-white sm:text-3xl sm:leading-9 sm:truncate">
             {{Str::upper($project->title)}}
           </h2>
@@ -12,20 +14,23 @@
                 <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd" />
                 <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
               </svg>
+              <span class="text-gray-200">Project Title</span> 
               {{$project->Type->name}}
             </div>
             <div class="mt-2 flex items-center text-sm leading-5 text-gray-300 sm:mr-6">
               <svg class="w-6 h-6" fill="white" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-             <span>Target beneficiaries </span> {{$project->target}}
+             <span class="px-2">Target beneficiaries:  </span> {{$project->target}}
             </div>
             <div class="mt-2 flex items-center text-sm leading-5 text-gray-300 sm:mr-6">
               <svg class="w-6 h-6" fill="white" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+              <span class="px-2">Implementing Agency </span> 
               @foreach ($project->agencies as $agency)
                       {{$agency->name}}
               @endforeach
             </div>
             <div class="mt-2 flex items-center text-sm leading-5 text-gray-300 sm:mr-6">
               <svg class="w-6 h-6" fill="white" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+              <span class="px-2">Donor(s) </span> 
               @foreach ($project->donors as $donor)
                       {{$donor->name}}
               @endforeach
@@ -35,7 +40,8 @@
                 <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd" />
               </svg>
-                    ${{number_format($project->budget)}}
+              <span class="px-2">Project Budget</span> 
+              ${{number_format($project->budget)}}
 
             </div>
             <div class="mt-2 flex items-center text-sm leading-5 text-gray-300">
