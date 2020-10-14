@@ -31,6 +31,7 @@ class Reports extends Component
     public $sortField='title';
     public $sortAsc = false;
     public $search = '';
+    public $selected = [];
 
     public function sortBy($field)
     {
@@ -42,14 +43,22 @@ class Reports extends Component
 
         $this->sortField = $field;
     }
- 
+    public function exportSelected()
+    {
+        return response()->streamDownload(function () {
+            echo Project::whereKey($this->selected)->toCsv();
+        }, 'Projects.csv');
+    }
 
     public function render()
     {
     
-          $query = Project::where('state_id', $this->state_id);
+          $query = Project::query();
                     
         
+            if($this->type_id) {
+                    $query->where('state_id', $this->state_id);
+            }
             if($this->type_id) {
                     $query->where('type_id', $this->type_id);
             }

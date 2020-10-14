@@ -83,9 +83,10 @@
     </div>
  
    
- 
+    <button type="button" wire:click="exportSelected" class="flex items-center space-x-2">
+      <span>Export</span>
+     </button>
      
-    
      <div class="mt-10">
 
       {{-- <div class="mb-5">
@@ -93,14 +94,14 @@
         placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 sm:text-sm" " 
         type="search" placeholder="Search projects...">
       </div> --}}
-      @if ($perPage < 0)
-          x
-      @else
-          none
-      @endif
+      
       <table class="min-w-full divide-y divide-gray-200">
         <thead class=" bg-indigo-600 text-white">
         <tr>
+          <th class="px-6 py-3 text-left text-xs leading-4 font-semibold  uppercase tracking-wider">
+            <input @click=""  type="checkbox" name="selected[]" value=""
+                        class="form-checkbox h-5 w-5 text-indigo-600 transition duration-150 ease-in-out">
+          </th>
           <th class="px-6 py-3 text-left text-xs leading-4 font-semibold  uppercase tracking-wider">
             <a  wire:click.prevent="sortBy('title')" role="button" href="#">
               Title
@@ -152,6 +153,10 @@
       <tbody class="">
                    @forelse ($selectedprojects as $project)
                     <tr class="bg-white">
+                      <td class="px-6 flex-shrink py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
+                      <input wire:model="selected" type="checkbox" value="{{$project->id}}"
+                        class="form-checkbox h-5 w-5 text-indigo-600 transition duration-150 ease-in-out">
+                      </td>
                       <td class="px-6 flex-shrink py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
                       <a href="{{route('projects.show', $project->id)}}">{{Str::limit($project->title, 40)}} </a>
                       </td>

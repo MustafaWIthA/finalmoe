@@ -24,7 +24,7 @@
     <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
       <div class="mx-auto w-full max-w-sm lg:w-96">
         <div>
-          <img class="h-12 w-auto ml-auto mr-auto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Puntland_State_of_Somalia_Coat_of_Arms.png/640px-Puntland_State_of_Somalia_Coat_of_Arms.png?download" alt="Workflow">
+          <img class="h-40 w-auto ml-auto mr-auto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Puntland_State_of_Somalia_Coat_of_Arms.png/640px-Puntland_State_of_Somalia_Coat_of_Arms.png?download" alt="Workflow">
           <h5 class="mt-6 text-center  text-sm leading-9 font-extrabold text-gray-900">
             PUNTLAND MINISTRY OF EDUCATION AND HIGHER EDUCATION
           </h5>
