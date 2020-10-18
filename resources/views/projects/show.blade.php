@@ -171,7 +171,6 @@ Project Regions
 
       <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
         @forelse ($project->districts as $district)
-        {{$district->name}},
         <ul class="list-disc">
           <li> {{$district->name}},</li>
         </ul>
