@@ -123,80 +123,73 @@ Project Regions
             </div>
           </div>
         </a></li>
-      </ul>
-    </div>
-
-    <div class="bg-white shadow overflow-hidden sm:rounded-md">
-      <ul>
-        <li>  <a href="#" class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
-          <div class="flex items-center px-4 py-4 sm:px-6">
-            <div class="min-w-0 flex-1 flex items-center">
-              <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
-                <div>
-                  <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
-                    <!-- Heroicon name: mail -->
-                   <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
-                        </path>
-                      </svg>
-                      <span class="truncate">Implementing Agency </span>
-                  </div>
-                </div>
-                <div class="hidden md:block">
+          <li class="border-t border-gray-200">  <a href="#" class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
+            <div class="flex items-center px-4 py-4 sm:px-6">
+              <div class="min-w-0 flex-1 flex items-center">
+                <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                   <div>
                     <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
-                      <!-- Heroicon name: check-circle -->
-                      @foreach ($project->agencies as $agency)
-                      {{$agency->name}}, 
-                      @endforeach
+                      <!-- Heroicon name: mail -->
+                     <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                          </path>
+                        </svg>
+                        <span class="truncate">Implementing Agency </span>
+                    </div>
+                  </div>
+                  <div class="hidden md:block">
+                    <div>
+                      <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
+                        <!-- Heroicon name: check-circle -->
+                        @foreach ($project->agencies as $agency)
+                        {{$agency->name}}, 
+                        @endforeach
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <div>
+              </div>
             </div>
-            <div>
-            </div>
-          </div>
-        </a></li>
-      </ul>
-    </div>
-
-    <div class="bg-white shadow overflow-hidden sm:rounded-md">
-      <ul>
-        <li>  <a href="#" class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
-          <div class="flex items-center px-4 py-4 sm:px-6">
-            <div class="min-w-0 flex-1 flex items-center">
-              <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
-                <div>
-                  <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
-                    <!-- Heroicon name: mail -->
-                      <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
-                        </path>
-                      </svg>
-                      <span class="truncate">Donor's</span>
-                  </div>
-                </div>
-                <div class="hidden md:block">
+          </a></li>
+          <li class="border-t border-gray-200">  <a href="#" class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
+            <div class="flex items-center px-4 py-4 sm:px-6">
+              <div class="min-w-0 flex-1 flex items-center">
+                <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
                   <div>
                     <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
-                      <!-- Heroicon name: check-circle -->
-                      @foreach ($project->donors as $donor)
-                      {{$donor->name}}
-                      @endforeach
+                      <!-- Heroicon name: mail -->
+                        <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
+                          </path>
+                        </svg>
+                        <span class="truncate">Donor's</span>
+                    </div>
+                  </div>
+                  <div class="hidden md:block">
+                    <div>
+                      <div class="mt-2 flex items-center text-sm leading-5 text-gray-500">
+                        <!-- Heroicon name: check-circle -->
+                        @foreach ($project->donors as $donor)
+                        {{$donor->name}}
+                        @endforeach
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <div>
+              </div>
             </div>
-            <div>
-            </div>
-          </div>
-        </a></li>
+          </a></li>
       </ul>
     </div>
+
+
+   
     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
       <dt class="text-sm leading-5 font-medium text-gray-900">
         Project Description
