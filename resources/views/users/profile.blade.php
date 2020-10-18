@@ -39,7 +39,7 @@ Profile
                         for="grid-first-name">
                         New Password
                     </label>
-                    <input
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500""
                         type="password" name="new_password" >
                      @error('new_password')<span class="mt-2 text-sm text-red-600">{{ $message }}</span>@enderror
                 </div>
