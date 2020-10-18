@@ -17,7 +17,7 @@
           <path
             d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
         </svg>
-        <span class="text-gray-200">Project Title</span>
+        <span class="text-gray-200">Project Type</span>
         {{$project->Type->name}}
       </div>
       <div class="mt-2 flex items-center text-sm leading-5 text-gray-300 sm:mr-6">
@@ -36,7 +36,7 @@
         </svg>
         <span class="px-2">Implementing Agency </span>
         @foreach ($project->agencies as $agency)
-        {{$agency->name}}
+        {{$agency->name}}, 
         @endforeach
       </div>
       <div class="mt-2 flex items-center text-sm leading-5 text-gray-300 sm:mr-6">
@@ -129,7 +129,7 @@ Project Regions
       <dt class="text-sm leading-5 font-medium text-gray-900">
         Project Priority
       </dt>
-      <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+      <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2 shadow-xl">
         @forelse ($project->Priorities as $Priority)
         
           <ul class="list-disc">
@@ -142,7 +142,7 @@ Project Regions
       <dt class="text-sm leading-5 font-medium text-gray-900">
         Project Sector
       </dt>
-      <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+      <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2 shadow-xl">
        
         @forelse ($project->Sectors as $Sector)
         <ul class="list-disc">
@@ -156,7 +156,7 @@ Project Regions
         Project Regions
       </dt>
 
-      <dt class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+      <dt class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2 shadow-xl">
         @forelse ($project->regions as $region)
         <ul class="list-disc">
           <li> {{$region->name}},</li>
@@ -169,7 +169,7 @@ Project Regions
         Project Districts
       </dt>
 
-      <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+      <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2 shadow-xl">
         @forelse ($project->districts as $district)
         <ul class="list-disc">
           <li> {{$district->name}},</li>
