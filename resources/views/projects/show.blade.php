@@ -160,10 +160,11 @@ Project Regions
         Project Sector
       </dt>
       <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-        <ul class="list-disc">
+       
         @forelse ($project->Sectors as $Sector)
+        <ul class="list-disc">
           <li> {{$Sector->name}},</li>
-      </ul>
+        </ul>
         @empty
         <h1>nothin is added yet</h1>
         @endforelse
