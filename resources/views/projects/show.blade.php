@@ -129,7 +129,7 @@ Project Regions
       <dt class="text-sm leading-5 font-medium text-gray-900">
         Project Priority
       </dt>
-      <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2 shadow-xl">
+      <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2 shadow-xl rounded-lg py-4 px-4">
         @forelse ($project->Priorities as $Priority)
         
           <ul class="list-disc">
@@ -142,7 +142,7 @@ Project Regions
       <dt class="text-sm leading-5 font-medium text-gray-900">
         Project Sector
       </dt>
-      <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2 shadow-xl">
+      <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2 shadow-xl rounded-lg py-4 px-4">
        
         @forelse ($project->Sectors as $Sector)
         <ul class="list-disc">
@@ -156,7 +156,7 @@ Project Regions
         Project Regions
       </dt>
 
-      <dt class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2 shadow-xl">
+      <dt class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2 shadow-xl rounded-lg py-4 px-4">
         @forelse ($project->regions as $region)
         <ul class="list-disc">
           <li> {{$region->name}},</li>
@@ -169,9 +169,9 @@ Project Regions
         Project Districts
       </dt>
 
-      <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2 ">
+      <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2 shadow-xl rounded-lg py-4 px-4">
         @forelse ($project->districts as $district)
-        <ul class="list-disc shadow-xl rounded-lg py-4">
+        <ul class="list-disc">
           <li> {{$district->name}},</li>
         </ul>
         @empty
