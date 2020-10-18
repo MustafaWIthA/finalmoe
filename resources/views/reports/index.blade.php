@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('maintitle')
-    Search Project
+<span class="no-print">Search Project</span>
+    
 @endsection
 
 @section('content')
