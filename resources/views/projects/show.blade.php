@@ -124,34 +124,17 @@ Project Regions
       <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
         {{$project->description}}
       </dd>
-      <dt class="text-sm leading-5 font-medium text-gray-900">
-        Project Districts
-      </dt>
-
-      <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-        @forelse ($project->districts as $district)
-        {{$district->name}},
-        @empty
-        <h1>nothin is added yet</h1>
-        @endforelse
-      </dd>
-      <dt class="text-sm leading-5 font-medium text-gray-900">
-        Project Regions
-      </dt>
-
-      <dt class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-        @forelse ($project->regions as $region)
-        {{$region->name}},
-        @empty
-        <h1>nothin is added yet</h1>
-        @endforelse
-      </dt>
+      
+      
       <dt class="text-sm leading-5 font-medium text-gray-900">
         Project Priority
       </dt>
       <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
         @forelse ($project->Priorities as $Priority)
-        {{$Priority->name}},
+        
+          <ul class="list-disc">
+          <li>{{$Priority->name}},</li>
+        </ul>
         @empty
         <h1>nothin is added yet</h1>
         @endforelse
@@ -164,6 +147,33 @@ Project Regions
         @forelse ($project->Sectors as $Sector)
         <ul class="list-disc">
           <li> {{$Sector->name}},</li>
+        </ul>
+        @empty
+        <h1>nothin is added yet</h1>
+        @endforelse
+      </dd>
+      <dt class="text-sm leading-5 font-medium text-gray-900">
+        Project Regions
+      </dt>
+
+      <dt class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+        @forelse ($project->regions as $region)
+        <ul class="list-disc">
+          <li> {{$region->name}},</li>
+        </ul>
+        @empty
+        <h1>nothin is added yet</h1>
+        @endforelse
+      </dt>
+      <dt class="text-sm leading-5 font-medium text-gray-900">
+        Project Districts
+      </dt>
+
+      <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+        @forelse ($project->districts as $district)
+        {{$district->name}},
+        <ul class="list-disc">
+          <li> {{$district->name}},</li>
         </ul>
         @empty
         <h1>nothin is added yet</h1>
