@@ -18,7 +18,26 @@
     {{--  --}}
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-    
+    <style>
+      .invoice_body_billing_details{
+    margin-top: 20px;
+}
+.invoice_details {
+    background-color: #e2e2e2;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+@media print{
+    .invoice_print, #lef, .head, #top,.btn-success {
+        display:none;
+    }
+}
+@media (max-width: 540px){
+    .button-alignment{
+        margin-top: 20px;
+    }
+}
+    </style>
 
     @livewireStyles
 </head>
