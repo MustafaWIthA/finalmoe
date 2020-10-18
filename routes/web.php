@@ -30,6 +30,7 @@ Route::resource('activities', 'ActivityController')->middleware('auth');
 
 Route::resource('users', 'UserController')->middleware('auth'); 
 Route::get('user/{user}/profile', 'UserController@profile')->name('profile');
+Route::post('/Password', 'UserController@changepassword')->name('changepassword');
 
 
 

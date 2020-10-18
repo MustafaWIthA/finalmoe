@@ -208,7 +208,7 @@
                 <div x-data="{ isOpen: false }" @keydown.escape="open = false" @click.away="open = false"  class="ml-3 relative">
                   <div>
                       <button  @click="isOpen = !isOpen" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out" id="user-menu" aria-label="User menu" aria-haspopup="true">
-                        <img class="h-8 w-8 rounded-full" src="storage/{{{ Auth::user()->profile }}}" alt="">
+                        <img class="h-8 w-8 rounded-full" src="{{ auth()->user()->avatarUrl() }}" alt="">
                       </button>
                   </div>
                   

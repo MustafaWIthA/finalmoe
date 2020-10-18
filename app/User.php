@@ -35,7 +35,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
+    public function avatarUrl()
+            {
+                return 'https://www.gravatar.com/avatar/'.md5(strtolower(trim($this->email)));
+            }
     /**
      * The attributes that should be cast to native types.
      *
