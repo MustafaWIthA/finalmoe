@@ -37,6 +37,13 @@
         margin-top: 20px;
     }
 }
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
     </style>
 
     @livewireStyles
@@ -45,7 +52,7 @@
 
     <div class="h-screen flex overflow-hidden bg-gray-100">
         <!-- Off-canvas menu for mobile -->
-        <div class="md:hidden" x-data="{ isactive: false }">
+        <div class="md:hidden" x-data="{ isactive: false } ">
           <div class="fixed inset-0 flex z-40" x-show="isactive"
            
                     Entering: "transition-opacity ease-linear duration-300"
@@ -68,7 +75,7 @@
                 From: "translate-x-0"
                 To: "-translate-x-full"
             -->
-            <div class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-indigo-800">
+            <div class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-indigo-800 ">
               <div class="absolute top-0 right-0 -mr-14 p-1" >
                 <button class="flex items-center justify-center h-12 w-12 rounded-full focus:outline-none focus:bg-gray-600" aria-label="Close sidebar">
                   <svg class="h-6 w-6 text-white" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -138,7 +145,7 @@
         </div>
       
         <!-- Static sidebar for desktop -->
-        <div class="hidden md:flex md:flex-shrink-0">
+        <div class="hidden md:flex md:flex-shrink-0 ">
           <div class="flex flex-col w-64">
             <!-- Sidebar component, swap this element with another sidebar if you like -->
             <div class="flex flex-col flex-grow bg-green-700 pt-5 pb-4 overflow-y-auto">

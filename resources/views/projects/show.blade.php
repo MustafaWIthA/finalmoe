@@ -1,9 +1,13 @@
 @extends('layouts.app')
 @section('maintitle')
-<a style="color:#fff;" class="btn button-alignment btn-info m-t-15" data-toggle="button" onclick="javascript:window.print();">
-  Print
-</a>
-<div class=" invoice_print lg:flex lg:items-center lg:justify-between bg-blue-700 py-13 px-13 rounded-md rounded-b-none">
+<div class="col-lg-6 col-sm-6 invoice_print" >
+  <span class="pull-sm-right">
+      <a style="color:#fff;" class="btn button-alignment btn-info m-t-15" data-toggle="button" onclick="javascript:window.print();">
+          Print
+      </a>
+  </span>
+</div>
+<div class="lg:flex lg:items-center lg:justify-between bg-blue-700 py-13 px-13 rounded-md rounded-b-none">
   <div class="flex-1 min-w-0">
     <span class="text-gray-200">Project Title</span>
 

@@ -1,4 +1,6 @@
+
 <div>
+  <div class="no-print">
   <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
     <div class="sm:col-span-3">
      <label for="location" class="block text-sm leading-5 font-medium text-gray-700">Status</label>
@@ -81,12 +83,27 @@
      </div>
      
     </div>
- 
-   
-    <button type="button" wire:click="exportSelected" class="flex items-center space-x-2">
-      <span>Export</span>
-     </button>
-     
+    <div class="md:flex md:items-center md:justify-between">
+      <div class="flex-1 min-w-0">
+        <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:leading-9 sm:truncate">
+          
+        </h2>
+      </div>
+      <div class="mt-4 flex md:mt-0 md:ml-4">
+        <span class="shadow-sm rounded-md">
+          <button wire:click="exportSelected"  type="button" class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm leading-5 font-medium rounded-md text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50 transition duration-150 ease-in-out">
+            Exprort
+          </button>
+        </span>
+        <span class="ml-3 shadow-sm rounded-md">
+          <button onclick="javascript:window.print();" type="button" class="no-print inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700 transition duration-150 ease-in-out">
+            Print
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+    
      <div class="mt-10">
 
       {{-- <div class="mb-5">
@@ -98,7 +115,7 @@
       <table class="min-w-full divide-y divide-gray-200">
         <thead class=" bg-indigo-600 text-white">
         <tr>
-          <th class="px-6 py-3 text-left text-xs leading-4 font-semibold  uppercase tracking-wider">
+          <th class="no-print px-6 py-3 text-left text-xs leading-4 font-semibold  uppercase tracking-wider">
             <input @click=""  type="checkbox" name="selected[]" value=""
                         class="form-checkbox h-5 w-5 text-indigo-600 transition duration-150 ease-in-out">
           </th>
@@ -153,7 +170,7 @@
       <tbody class="">
                    @forelse ($selectedprojects as $project)
                     <tr class="bg-white">
-                      <td class="px-6 flex-shrink py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
+                      <td class="no-print px-6 flex-shrink py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900">
                       <input wire:model="selected" type="checkbox" value="{{$project->id}}"
                         class="form-checkbox h-5 w-5 text-indigo-600 transition duration-150 ease-in-out">
                       </td>
