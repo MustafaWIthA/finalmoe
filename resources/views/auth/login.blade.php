@@ -31,7 +31,7 @@
           <p class="mt-2 text-sm leading-5 text-center text-gray-600 max-w">
            
             <span class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-              Sign in to your account
+              Projects Database Management System
             </span>
           </p>
         </div>
